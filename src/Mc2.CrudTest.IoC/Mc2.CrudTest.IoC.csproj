@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Mc2.CrudTest.Application\Mc2.CrudTest.Application.csproj" />
     <ProjectReference Include="..\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj" />
     <ProjectReference Include="..\Mc2.CrudTest.Infra\Data\Mc2.CrudTest.Infra.Data\Mc2.CrudTest.Infra.Data.csproj" />
+    <ProjectReference Include="..\Mc2.CrudTest.Presentation\Shared\Mc2.CrudTest.Presentation.Shared.csproj" />
   </ItemGroup>
 
 </Project>
