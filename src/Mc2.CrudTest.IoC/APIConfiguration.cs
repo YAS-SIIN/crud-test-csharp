@@ -1,7 +1,9 @@
-﻿ 
+﻿
+using Mc2.CrudTest.Infra.Data.Context;
 using Mc2.CrudTest.Infra.Data.UnitOfWork;
 using Mc2.CrudTest.Interfaces.UnitOfWork;
 
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +20,8 @@ public static class APIConfiguration
     public static void Register(this IServiceCollection services, IConfiguration configuration)
     {
         //services.AddDbContext<Mc2CrudTestDbContext>(options => options.UseSqlServer(configuration["ApplicationOptions:Mc2CrudTestDbConnectionString"]));
- 
+
+        services.AddDbContext<Mc2CrudTestDbContext>(options => options.UseInMemoryDatabase("Mc2CrudTestDbContext"));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 

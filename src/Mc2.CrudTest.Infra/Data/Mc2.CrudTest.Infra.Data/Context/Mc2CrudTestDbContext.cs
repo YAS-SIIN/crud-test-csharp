@@ -1,4 +1,6 @@
-﻿ 
+﻿
+using Mc2.CrudTest.Domain.Entities;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Mc2.CrudTest.Infra.Data.Context;
@@ -8,11 +10,16 @@ public class Mc2CrudTestDbContext : DbContext
     public Mc2CrudTestDbContext(DbContextOptions<Mc2CrudTestDbContext> options) : base(options)
     {
     }
- 
+
+    public DbSet<Customer> Customers { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
- 
-        
+        new CustomerEntityTypeConfiguration().Configure(modelBuilder.Entity<Customer>()); 
+         
+        modelBuilder.Entity<Customer>().HasIndex(b => new { b.Firstname, b.Lastname, b.DateOfBirth }).IsUnique();
+
+        modelBuilder.Entity<Customer>().HasIndex(b => b.Email).IsUnique();
+
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(Mc2CrudTestDbContext).Assembly); base.OnModelCreating(modelBuilder);
     }
 
