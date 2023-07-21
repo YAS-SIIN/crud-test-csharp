@@ -1,0 +1,49 @@
+﻿@page "/customerdata"
+@using Mc2.CrudTest.Domain.DTOs.Customer;
+@using Mc2.CrudTest.Domain.DTOs.Exceptions;
+@using Mc2.CrudTest.Presentation.Shared
+@inject HttpClient Http
+
+<PageTitle>Customer Data</PageTitle>
+
+<h1>Customer Data</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (customerData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>BankAccount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in customerData.Data)
+            {
+                <tr>
+                    <td>@item.Firstname @item.Lastname</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Email</td>
+                    <td>@item.BankAccountNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private ResultDto<IList<GetCustomerResponse>> customerData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        customerData = await Http.GetFromJsonAsync<ResultDto<IList<GetCustomerResponse>>>("api/Customer");
+    }
+}
