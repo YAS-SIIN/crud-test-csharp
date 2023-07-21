@@ -82,7 +82,8 @@ public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCo
         RuleFor(x => x.Email)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
             .MaximumLength(100).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
-            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
+            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.")
+            .EmailAddress().WithMessage("Enter valid {PropertyName}.");
 
         RuleFor(x => x.DateOfBirth).NotEmpty().WithMessage("Enter {PropertyName}.");
     }

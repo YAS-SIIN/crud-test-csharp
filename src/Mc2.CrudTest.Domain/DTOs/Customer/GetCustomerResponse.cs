@@ -32,7 +32,7 @@ public class GetCustomerResponse
     /// Phone number of customer
     /// </summary>
     [DisplayName("Phone numberh")]
-    public ulong? PhoneNumber { get; set; }
+    public string? PhoneNumber { get; set; }
 
     /// <summary>
     /// Email of customer

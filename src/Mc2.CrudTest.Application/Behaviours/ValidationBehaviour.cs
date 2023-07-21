@@ -8,15 +8,21 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
      where TRequest : notnull
 {
     private readonly IEnumerable<IValidator<TRequest>> _validators;
+    //private readonly IValidator<TRequest> _validator;
+
+    //public ValidationBehaviour(IValidator<TRequest> validator)
+    //{
+    //    _validator = validator;
+    //}
 
     public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators)
     {
         _validators = validators;
     }
-             
+
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-
+       //var aa = _validators;
         if (_validators.Any())
         {
             var context = new ValidationContext<TRequest>(request);

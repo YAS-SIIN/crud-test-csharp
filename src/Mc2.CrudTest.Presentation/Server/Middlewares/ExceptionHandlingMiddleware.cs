@@ -23,8 +23,18 @@ namespace Mc2.CrudTest.Presentation.Server.Middlewares
 
         private static async Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
-            var statusCode = GetStatusCode(exception);
-            ErrorException errorException = new ErrorException(0, "");
+            ErrorException errorException = new ErrorException(httpContext.Response.StatusCode, "");
+            var statusCode = httpContext.Response.StatusCode;
+            IDictionary<string, string[]> errors = new Dictionary<string, string[]>();
+            try
+            {
+                statusCode = GetStatusCode(exception);
+            } catch (Exception) {}
+            try
+            {
+                errors = GetErrors(exception);
+            }
+            catch (Exception) { }
             try
             {
                 errorException = (ErrorException)exception;
@@ -35,7 +45,8 @@ namespace Mc2.CrudTest.Presentation.Server.Middlewares
                 StatusCode = statusCode,
                 ErrorDescription = errorException.ErrorDescription,
                 ErrorDetail = errorException.Message,
-                ErrorCode = errorException.ErrorCode
+                ErrorCode = errorException.ErrorCode,
+                Errors = errors
             };
             var errorData = ResultDto<ErrorDto>.ReturnData(statusCode, response);
 

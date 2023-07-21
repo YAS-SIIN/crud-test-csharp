@@ -62,7 +62,6 @@ public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCo
     public UpdateCustomerCommandValidator()
     {
 
-
         RuleFor(v => v.Firstname)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
             .MaximumLength(50).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
@@ -88,10 +87,10 @@ public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCo
         RuleFor(x => x.Email)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
             .MaximumLength(100).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
-            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
+            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.")
+            .EmailAddress().WithMessage("Enter valid {PropertyName}.");
 
         RuleFor(x => x.DateOfBirth).NotEmpty().WithMessage("Enter {PropertyName}.");
-
 
     }
 

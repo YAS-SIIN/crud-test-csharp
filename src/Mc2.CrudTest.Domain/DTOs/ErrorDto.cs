@@ -17,4 +17,5 @@ public class ErrorDto
     public string? ErrorDescription { get; set; }
  
     public string? ErrorDetail { get; set; }
+    public IDictionary<string, string[]>? Errors { get; set; }
 }
