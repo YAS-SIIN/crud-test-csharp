@@ -2,7 +2,7 @@
 using MediatR;
 using ValidationException = Mc2.CrudTest.Presentation.Shared.Exceptions.ValidationException;
 
-namespace ERP.Common.Common.Behaviours;
+namespace Mc2.CrudTest.Presentation.Shared.Behaviours;
 
 public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
      where TRequest : notnull

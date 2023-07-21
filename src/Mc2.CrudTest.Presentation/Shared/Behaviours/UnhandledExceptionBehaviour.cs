@@ -1,6 +1,6 @@
 ﻿using MediatR;                      
 
-namespace ERP.Common.Common.Behaviours;
+namespace Mc2.CrudTest.Presentation.Shared.Behaviours;
 
 public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {
