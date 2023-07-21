@@ -27,7 +27,10 @@ public class GetAllCustomerQueryHandler : IRequestHandler<GetAllCustomerQuery, R
     {
 
         var response = await _uw.GetRepository<Domain.Entities.Customer>().GetAllAsync(cancellationToken); 
-        var resData = Mapper<IList<GetAllCustomerResponse>, IList<Domain.Entities.Customer>>.MappClasses(response.ToList());
+        var resData = response.Select(x=> new GetAllCustomerResponse {
+            Firstname = x.Firstname, Lastname = x.Lastname, 
+            DateOfBirth = x.DateOfBirth, PhoneNumber = x.PhoneNumber, Email = x.Email, BankAccountNumber = x.BankAccountNumber, Id = x.Id
+            }).ToList();
         return ResultDto<IList<GetAllCustomerResponse>>.Success(EnumResponses.Success, resData);
     }
  

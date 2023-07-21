@@ -12,7 +12,7 @@ namespace Mc2.CrudTest.Domain.Entities;
 /// <summary>
 /// Customer Entity
 /// </summary>
-public class Customer : BaseEntity<long>
+public class Customer : BaseEntity<int>
 {
     /// <summary>
     /// First name of customer

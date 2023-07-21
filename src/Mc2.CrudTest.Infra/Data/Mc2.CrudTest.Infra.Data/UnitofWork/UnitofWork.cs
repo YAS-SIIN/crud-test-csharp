@@ -1,10 +1,9 @@
-﻿ 
+﻿
 
+using Mc2.CrudTest.Domain.Interfaces.Repositories;
+using Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
 using Mc2.CrudTest.Infra.Data.Context;
 using Mc2.CrudTest.Infra.Data.Repositories;
-using Mc2.CrudTest.Interfaces.Repositories;
-using Mc2.CrudTest.Interfaces.UnitOfWork;
-  
 namespace Mc2.CrudTest.Infra.Data.UnitOfWork;
 
 public class UnitOfWork : IUnitOfWork

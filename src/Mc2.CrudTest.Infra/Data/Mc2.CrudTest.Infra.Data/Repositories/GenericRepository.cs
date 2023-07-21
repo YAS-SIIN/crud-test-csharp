@@ -1,6 +1,6 @@
 ﻿
+using Mc2.CrudTest.Domain.Interfaces.Repositories;
 using Mc2.CrudTest.Infra.Data.Context;
-using Mc2.CrudTest.Interfaces.Repositories;
 
 using Microsoft.EntityFrameworkCore;
  

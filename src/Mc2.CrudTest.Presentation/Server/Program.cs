@@ -1,5 +1,9 @@
-using Microsoft.AspNetCore.ResponseCompression;
+﻿using Microsoft.AspNetCore.ResponseCompression;
 using Mc2.CrudTest.IoC;
+using Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
+using Mc2.CrudTest.Presentation.Server;
+using Microsoft.OpenApi.Models;
+
 namespace Mc2.CrudTest.Presentation;
 
 public class Program
@@ -18,14 +22,31 @@ public class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
 
+        builder.Services.AddSwaggerGen(c =>
+        {
+            c.CustomSchemaIds(type => type.ToString());
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mc2.CrudTest.Presentation.Server", Version = "v1" });
+        });
+
         builder.Services.Register(builder.Configuration);
 
         var app = builder.Build();
+
+        // Initializing new data
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            var context = services.GetRequiredService<IUnitOfWork>();
+            DataGenerator.Initialize(services);
+        }
+
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseWebAssemblyDebugging();
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
         else
         {

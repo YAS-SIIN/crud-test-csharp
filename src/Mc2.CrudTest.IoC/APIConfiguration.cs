@@ -1,8 +1,8 @@
 ﻿ 
 using Mc2.CrudTest.Application;
+using Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
 using Mc2.CrudTest.Infra.Data.Context;
-using Mc2.CrudTest.Infra.Data.UnitOfWork;
-using Mc2.CrudTest.Interfaces.UnitOfWork;
+using Mc2.CrudTest.Infra.Data.UnitOfWork; 
 using Mc2.CrudTest.Presentation.Shared.Behaviours;
 
 using MediatR;
