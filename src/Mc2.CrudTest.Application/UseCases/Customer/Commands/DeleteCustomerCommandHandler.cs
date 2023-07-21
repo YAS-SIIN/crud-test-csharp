@@ -23,10 +23,10 @@ public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerComman
         var inputData = await _uw.GetRepository<Domain.Entities.Customer>().GetByIdAsync(request.Id, cancellationToken);
 
         if (inputData is not Domain.Entities.Customer)
-            throw new ValidationException(EnumResponses.NotFound, EnumResponses.NotFound.ToString());
+            throw new ErrorException(EnumResponses.NotFound, EnumResponses.NotFound.ToString());
 
         _uw.GetRepository<Domain.Entities.Customer>().Delete(inputData, true);
          
-        return ResultDto<int>.Success(EnumResponses.Success, request.Id);
+        return ResultDto<int>.ReturnData(EnumResponses.Success, request.Id);
     }
 }

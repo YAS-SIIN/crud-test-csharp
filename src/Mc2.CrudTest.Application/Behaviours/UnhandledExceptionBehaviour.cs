@@ -8,7 +8,7 @@ using Mc2.CrudTest.Domain.DTOs;
 using System.Net.Http;
 using System;
 
-namespace Mc2.CrudTest.Presentation.Shared.Behaviours;
+namespace Mc2.CrudTest.Application.Behaviours;
 
 public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {

@@ -25,6 +25,6 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);
 
-        return ResultDto<GetCustomerResponse>.Success(EnumResponses.Success, outputData);
+        return ResultDto<GetCustomerResponse>.ReturnData(EnumResponses.Success, outputData);
     }
 }

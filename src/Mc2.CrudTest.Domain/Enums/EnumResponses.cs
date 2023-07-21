@@ -15,7 +15,10 @@ public static class EnumResponses
     public const int NotFound = 100;
                 
     [Display(Name = "This data can't delete.")]
-    public const int NotDelete = 107;
+    public const int NotDelete = 101;
+                          
+    [Display(Name = "Internal error")]
+    public const int InternalError = 102;
                           
     [Display(Name = "Done.")]
     public const int Success = 200;

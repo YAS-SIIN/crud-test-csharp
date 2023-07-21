@@ -31,7 +31,7 @@ public class GetAllCustomerQueryHandler : IRequestHandler<GetAllCustomerQuery, R
             Firstname = x.Firstname, Lastname = x.Lastname, 
             DateOfBirth = x.DateOfBirth, PhoneNumber = x.PhoneNumber, Email = x.Email, BankAccountNumber = x.BankAccountNumber, Id = x.Id
             }).ToList();
-        return ResultDto<IList<GetCustomerResponse>>.Success(EnumResponses.Success, resData);
+        return ResultDto<IList<GetCustomerResponse>>.ReturnData(EnumResponses.Success, resData);
     }
  
 }

@@ -3,7 +3,8 @@ using Mc2.CrudTest.IoC;
 using Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
 using Mc2.CrudTest.Presentation.Server;
 using Microsoft.OpenApi.Models;
-
+using Mc2.CrudTest.Presentation.Server.Middlewares;
+using FluentValidation;
 namespace Mc2.CrudTest.Presentation;
 
 public class Program
@@ -30,6 +31,8 @@ public class Program
 
         builder.Services.Register(builder.Configuration);
 
+        builder.Services.AddScoped<ExceptionHandlingMiddleware>();
+        builder.Services.AddControllersWithViews();
         var app = builder.Build();
 
         // Initializing new data
@@ -59,6 +62,7 @@ public class Program
 
         app.UseBlazorFrameworkFiles();
         app.UseStaticFiles();
+        app.UseMiddleware<ExceptionHandlingMiddleware>();
 
         app.UseRouting();
 
