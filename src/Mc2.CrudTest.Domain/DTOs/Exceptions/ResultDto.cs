@@ -22,6 +22,11 @@ public class ResultDto<T>
         return new ResultDto<T> { StatusCode = statusCode };
     }
 
+    public static ResultDto<T> Fail(int statusCode)
+    {
+        return new ResultDto<T> { StatusCode = statusCode };
+    }
+    
     public static ResultDto<T> Fail(int statusCode, List<ErrorDto> errors)
     {
         return new ResultDto<T> { StatusCode = statusCode, Errors = errors };

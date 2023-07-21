@@ -5,6 +5,6 @@ using MediatR;
 
 namespace Mc2.CrudTest.Core.Queries.Customer;
 
-public class GetAllCustomerQuery : IRequest<ResultDto<IList<GetAllCustomerResponse>>>
+public class GetAllCustomerQuery : IRequest<ResultDto<IList<GetCustomerResponse>>>
 {
 }

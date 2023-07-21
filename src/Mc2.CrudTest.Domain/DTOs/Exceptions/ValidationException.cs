@@ -4,11 +4,11 @@ namespace Mc2.CrudTest.Domain.DTOs.Exceptions;
 
 public class ValidationException : Exception
 {
-    public string ErrorCode { get; set; }
+    public int ErrorCode { get; set; }
      
     public string ErrorDescription { get; set; }               
 
-    public ValidationException(string errorCode, string errorDescription)
+    public ValidationException(int errorCode, string errorDescription)
     {
         ErrorCode = errorCode;
         ErrorDescription = errorDescription;

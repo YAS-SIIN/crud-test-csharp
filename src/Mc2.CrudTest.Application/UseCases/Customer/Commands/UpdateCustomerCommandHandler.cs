@@ -10,18 +10,18 @@ using Mc2.CrudTest.Core.Commands.Customer;
 
 namespace Mc2.CrudTest.Application.UseCases.Customer.Commands;
 
-public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, ResultDto<GetCustomerResponse>>
+public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, ResultDto<GetCustomerResponse>>
 {
     private readonly IUnitOfWork _uw;
-    public CreateCustomerCommandHandler(IUnitOfWork uw)
+    public UpdateCustomerCommandHandler(IUnitOfWork uw)
     {
         _uw = uw;
     }
 
-    public async Task<ResultDto<GetCustomerResponse>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+    public async Task<ResultDto<GetCustomerResponse>> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
     {
-        Domain.Entities.Customer inputData = Mapper<Domain.Entities.Customer, CreateCustomerCommand>.MappClasses(request);
-        await _uw.GetRepository<Domain.Entities.Customer>().AddAsync(inputData, cancellationToken, true);
+        Domain.Entities.Customer inputData = Mapper<Domain.Entities.Customer, UpdateCustomerCommand>.MappClasses(request);
+        _uw.GetRepository<Domain.Entities.Customer>().Update(inputData, true);
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);
 

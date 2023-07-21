@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Mc2.CrudTest.Domain.DTOs.Customer;
 
-public class GetAllCustomerResponse
+public class GetCustomerResponse
 {
     /// <summary>
     /// Customer Id

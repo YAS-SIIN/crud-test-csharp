@@ -23,16 +23,13 @@ namespace Mc2.CrudTest.IoC;
 public static class APIConfiguration
 {
     public static void Register(this IServiceCollection services, IConfiguration configuration)
-    {
-        //services.AddDbContext<Mc2CrudTestDbContext>(options => options.UseSqlServer(configuration["ApplicationOptions:Mc2CrudTestDbConnectionString"]));
-
+    { 
         services.AddDbContext<Mc2CrudTestDbContext>(options => options.UseInMemoryDatabase("Mc2CrudTestDbContext"));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(InjectMediatR).GetTypeInfo().Assembly));
-
-
+         
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 

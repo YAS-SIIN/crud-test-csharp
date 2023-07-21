@@ -3,8 +3,10 @@ using Mc2.CrudTest.Domain.Interfaces.Repositories;
 using Mc2.CrudTest.Infra.Data.Context;
 
 using Microsoft.EntityFrameworkCore;
- 
+
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 
 namespace Mc2.CrudTest.Infra.Data.Repositories;
 
@@ -40,14 +42,28 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return _dbSet.Where(predicate);
     }
 
-    public T GetById(object id)
+    public T? GetById(object id)
     {
-        return _dbSet.Find(id);
+        return _dbSet.Find(id); 
     }
 
-    public T Get(Expression<Func<T, bool>> predicate)
+
+    public object Get(Expression<Func<T, bool>>? predicate = null, Expression<Func<T, object>>? select = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null)
     {
-        return _dbSet.Where(predicate).FirstOrDefault();
+        IQueryable<T> data = _dbSet;
+        if (predicate is not null)
+        {
+            data = data.Where(predicate).AsQueryable();
+        }
+        else if (orderBy is not null)
+        {
+            data = orderBy(data);
+        }
+        else if (select is not null)
+        {
+            return data.Select(select).ToList();
+        }
+        return data.ToList();
     }
 
     public virtual void Add(T entity, bool save = false)
@@ -115,14 +131,27 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return data.AsQueryable();
     }
 
-    public async Task<T> GetByIdAsync(object id, CancellationToken cancellationToken)
+    public async Task<T?> GetByIdAsync(object id, CancellationToken cancellationToken)
     {
         return await _dbSet.FindAsync(id, cancellationToken);
     }
 
-    public async Task<T> GetAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
+    public async Task<object> GetAsync(CancellationToken cancellationToken, Expression<Func<T, bool>>? predicate = null, Expression<Func<T, object>>? select = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null)
     {
-        return await _dbSet.Where(predicate).FirstOrDefaultAsync(cancellationToken);
+        IQueryable<T> data = _dbSet;
+        if (predicate is not null)
+        {
+           data = data.Where(predicate).AsQueryable();
+        }
+        else if (orderBy is not null)
+        {
+            data = orderBy(data);
+        }
+        else if (select is not null)
+        {
+           return await data.Select(select).ToListAsync(cancellationToken);
+        }
+        return await data.ToListAsync(cancellationToken);
     }
 
     public async virtual Task AddAsync(T entity, CancellationToken cancellationToken, bool save = false)

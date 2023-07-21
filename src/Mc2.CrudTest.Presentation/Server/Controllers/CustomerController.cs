@@ -16,10 +16,31 @@ public class CustomerController : BaseApiController
 {
 
     /// <summary>
-    /// Creates a New Employee.
+    /// Get all customer.
+    /// </summary>
+    /// <returns>Result</returns>
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var query = new GetAllCustomerQuery();
+        return OkData(await Mediator.Send(query));
+    }
+
+    /// <summary>
+    /// Get customer.
+    /// </summary>
+    /// <returns>Result</returns>
+    [HttpGet("{Id}")]
+    public async Task<IActionResult> Get([FromRoute] GetCustomerQuery query)
+    { 
+        return OkData(await Mediator.Send(query));
+    }
+
+    /// <summary>
+    /// Creates a new customer.
     /// </summary>
     /// <param name="command"></param>
-    /// <returns></returns>
+    /// <returns>Result</returns>
     [HttpPost]
     public async Task<IActionResult> Create(CreateCustomerCommand command)
     {
@@ -27,14 +48,25 @@ public class CustomerController : BaseApiController
     }
 
     /// <summary>
-    /// Get All Employees.
+    /// Update customer.
     /// </summary>
-    /// <returns></returns>
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
+    /// <param name="command"></param>
+    /// <returns>Result</returns>
+    [HttpPut]
+    public async Task<IActionResult> Update(UpdateCustomerCommand command)
     {
-        var query = new GetAllCustomerQuery();
-        return OkData(await Mediator.Send(query));
+        return OkData(await Mediator.Send(command));
+    }
+
+    /// <summary>
+    /// Delete customer.
+    /// </summary>
+    /// <returns>Result</returns>
+    [HttpDelete("{Id}")]
+    public async Task<IActionResult> Delete([FromRoute] DeleteCustomerCommand command)
+    { 
+
+        return OkData(await Mediator.Send(command));
     }
 
 }

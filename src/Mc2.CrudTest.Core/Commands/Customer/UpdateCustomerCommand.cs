@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace Mc2.CrudTest.Core.Commands.Customer;
 
-public class CreateCustomerCommand : IRequest<ResultDto<GetCustomerResponse>>
+public class UpdateCustomerCommand : IRequest<ResultDto<GetCustomerResponse>>
 {
     /// <summary>
     /// Customer Id
@@ -55,9 +55,9 @@ public class CreateCustomerCommand : IRequest<ResultDto<GetCustomerResponse>>
 }
 
 
-public class CreateEmployeeCommandValidator : AbstractValidator<CreateCustomerCommand>
+public class UpdateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
 {
-    public CreateEmployeeCommandValidator()
+    public UpdateCustomerCommandValidator()
     {
 
         RuleFor(v => v.Firstname)
