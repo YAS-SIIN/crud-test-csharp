@@ -6,6 +6,8 @@ using Mc2.CrudTest.Domain.DTOs.Exceptions;
 
 using MediatR;
 
+using PhoneNumbers;
+
 using System.ComponentModel;
 
 namespace Mc2.CrudTest.Core.Commands.Customer;
@@ -39,7 +41,7 @@ public class UpdateCustomerCommand : IRequest<ResultDto<GetCustomerResponse>>
     /// Phone number of customer
     /// </summary>
     [DisplayName("Phone numberh")]
-    public ulong? PhoneNumber { get; set; }
+    public string? PhoneNumber { get; set; }
 
     /// <summary>
     /// Email of customer
@@ -60,6 +62,7 @@ public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCo
     public UpdateCustomerCommandValidator()
     {
 
+
         RuleFor(v => v.Firstname)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
             .MaximumLength(50).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
@@ -69,6 +72,25 @@ public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCo
             .NotEmpty().WithMessage("Enter {PropertyName}.")
             .MaximumLength(100).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
             .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
+
+
+        RuleFor(x => x.PhoneNumber)
+            .NotEmpty().WithMessage("Enter {PropertyName}.")
+            .MaximumLength(15).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
+            .Must(x => x.StartsWith("+") && PhoneNumberUtil.GetInstance()
+                .IsValidNumber(PhoneNumberUtil.GetInstance().Parse(x, "")))
+            .WithMessage("Enter Valid {PropertyName}.");
+
+        RuleFor(x => x.BankAccountNumber)
+            .CreditCard().WithMessage("Enter valid {PropertyName}.")
+            .When(x => x.BankAccountNumber is not null);
+
+        RuleFor(x => x.Email)
+            .NotEmpty().WithMessage("Enter {PropertyName}.")
+            .MaximumLength(100).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
+            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
+
+        RuleFor(x => x.DateOfBirth).NotEmpty().WithMessage("Enter {PropertyName}.");
 
 
     }

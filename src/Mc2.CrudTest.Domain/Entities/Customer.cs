@@ -32,7 +32,7 @@ public class Customer : BaseEntity<int>
     /// <summary>
     /// Phone number of customer
     /// </summary>
-    public ulong PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; }
 
     /// <summary>
     /// Email of customer

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.6.0" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.16" />
     <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 
