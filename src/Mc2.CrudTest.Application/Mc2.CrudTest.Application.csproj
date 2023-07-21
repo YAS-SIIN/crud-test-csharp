@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mc2.CrudTest.Core\Mc2.CrudTest.Core.csproj" />
+    <ProjectReference Include="..\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj" />
+    <ProjectReference Include="..\Mc2.CrudTest.Presentation\Shared\Mc2.CrudTest.Presentation.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

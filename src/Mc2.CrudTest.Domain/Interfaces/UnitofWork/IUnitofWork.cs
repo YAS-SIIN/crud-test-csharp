@@ -1,8 +1,8 @@
-﻿ 
+﻿
 
-using Mc2.CrudTest.Interfaces.Repositories;
+using Mc2.CrudTest.Domain.Interfaces.Repositories;
                 
-namespace Mc2.CrudTest.Interfaces.UnitOfWork;
+namespace Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
 
 public interface IUnitOfWork 
 {

@@ -1,17 +1,21 @@
-﻿ 
+﻿
 using FluentValidation;
 
 using Mc2.CrudTest.Domain.DTOs.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
 
 using MediatR;
- 
-using System.ComponentModel; 
+
+using System.ComponentModel;
 
 namespace Mc2.CrudTest.Core.Commands.Customer;
 
 public class CreateCustomerCommand : IRequest<ResultDto<GetAllCustomerResponse>>
 {
+    /// <summary>
+    /// Customer Id
+    /// </summary> 
+    public int Id { get; set; }
 
     /// <summary>
     /// First name of customer

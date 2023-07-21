@@ -6,6 +6,11 @@ namespace Mc2.CrudTest.Domain.DTOs.Customer;
 public class GetAllCustomerResponse
 {
     /// <summary>
+    /// Customer Id
+    /// </summary> 
+    public int Id { get; set; }
+
+    /// <summary>
     /// First name of customer
     /// </summary>
     [DisplayName("First name")]

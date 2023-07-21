@@ -1,7 +1,7 @@
 ﻿
 using System.Linq.Expressions;
 
-namespace Mc2.CrudTest.Interfaces.Repositories;
+namespace Mc2.CrudTest.Domain.Interfaces.Repositories;
 
 public interface IGenericRepository<T> where T : class
 {
