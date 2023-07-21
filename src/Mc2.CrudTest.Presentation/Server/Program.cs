@@ -5,6 +5,9 @@ using Mc2.CrudTest.Presentation.Server;
 using Microsoft.OpenApi.Models;
 using Mc2.CrudTest.Presentation.Server.Middlewares;
 using FluentValidation;
+using System.Reflection;
+using Mc2.CrudTest.Application; 
+
 namespace Mc2.CrudTest.Presentation;
 
 public class Program
@@ -30,7 +33,8 @@ public class Program
         });
 
         builder.Services.Register(builder.Configuration);
-
+         
+        //builder.Services.AddValidatorsFromAssemblyContaining<OrganisationValidator>(includeInternalTypes: true);
         builder.Services.AddScoped<ExceptionHandlingMiddleware>();
         builder.Services.AddControllersWithViews();
         var app = builder.Build();

@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Mc2.CrudTest.Application;
 
-public class InjectMediatR
+public class InjectApplication
 {
 }

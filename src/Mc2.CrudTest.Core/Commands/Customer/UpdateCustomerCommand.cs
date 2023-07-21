@@ -55,20 +55,20 @@ public class UpdateCustomerCommand : IRequest<ResultDto<GetCustomerResponse>>
 }
 
 
-public class UpdateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
+public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
 {
     public UpdateCustomerCommandValidator()
     {
 
         RuleFor(v => v.Firstname)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
-            .MaximumLength(50).WithMessage("maximum size of {PropertyName} is {MaxLength}.")
-            .MinimumLength(3).WithMessage("minimum size of {PropertyName} is {MinLength}.");
+            .MaximumLength(50).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
+            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
 
         RuleFor(v => v.Lastname)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
-            .MaximumLength(100).WithMessage("maximum size of {PropertyName} is {MaxLength}.")
-            .MinimumLength(3).WithMessage("minimum size of {PropertyName} is {MinLength}.");
+            .MaximumLength(100).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
+            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
 
 
     }

@@ -37,13 +37,13 @@ namespace Mc2.CrudTest.Presentation.Server.Middlewares
                 ErrorDetail = errorException.Message,
                 ErrorCode = errorException.ErrorCode
             };
-            ResultDto<ErrorDto>.ReturnData(statusCode, response);
+            var errorData = ResultDto<ErrorDto>.ReturnData(statusCode, response);
 
             httpContext.Response.ContentType = "application/json";
 
             httpContext.Response.StatusCode = statusCode;
 
-            await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
+            await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorData));
         }
 
         private static int GetStatusCode(Exception exception) =>

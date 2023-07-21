@@ -20,7 +20,7 @@ public class DeleteCustomerCommand : IRequest<ResultDto<int>>
 }
 
 
-public class DeleteCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
+public class DeleteCustomerCommandValidator : AbstractValidator<DeleteCustomerCommand>
 {
     public DeleteCustomerCommandValidator()
     {

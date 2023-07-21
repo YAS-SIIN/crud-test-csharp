@@ -13,11 +13,6 @@ namespace Mc2.CrudTest.Core.Commands.Customer;
 public class CreateCustomerCommand : IRequest<ResultDto<GetCustomerResponse>>
 {
     /// <summary>
-    /// Customer Id
-    /// </summary> 
-    public int Id { get; set; }
-
-    /// <summary>
     /// First name of customer
     /// </summary>
     [DisplayName("First name")]
@@ -55,20 +50,20 @@ public class CreateCustomerCommand : IRequest<ResultDto<GetCustomerResponse>>
 }
 
 
-public class CreateEmployeeCommandValidator : AbstractValidator<CreateCustomerCommand>
+public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
 {
-    public CreateEmployeeCommandValidator()
+    public CreateCustomerCommandValidator()
     {
 
         RuleFor(v => v.Firstname)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
-            .MaximumLength(50).WithMessage("maximum size of {PropertyName} is {MaxLength}.")
-            .MinimumLength(3).WithMessage("minimum size of {PropertyName} is {MinLength}.");
+            .MaximumLength(50).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
+            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
 
         RuleFor(v => v.Lastname)
             .NotEmpty().WithMessage("Enter {PropertyName}.")
-            .MaximumLength(100).WithMessage("maximum size of {PropertyName} is {MaxLength}.")
-            .MinimumLength(3).WithMessage("minimum size of {PropertyName} is {MinLength}.");
+            .MaximumLength(100).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
+            .MinimumLength(3).WithMessage("Minimum size of {PropertyName} is {MinLength}.");
 
 
     }

@@ -7,6 +7,7 @@ using Mc2.CrudTest.Presentation.Shared.Mapper;
 
 using MediatR;
 using Mc2.CrudTest.Core.Commands.Customer;
+using System.Runtime.InteropServices;
 
 namespace Mc2.CrudTest.Application.UseCases.Customer.Commands;
 
@@ -20,6 +21,12 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
 
     public async Task<ResultDto<GetCustomerResponse>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
+        var emailExist = await _uw.GetRepository<Domain.Entities.Customer>().ExistDataAsync(cancellationToken, x=>x.Email.Equals(request.Email));
+
+        if (emailExist)
+            throw new ErrorException(EnumResponses.RepeatedData, "Email is repeated.");
+
+
         Domain.Entities.Customer inputData = Mapper<Domain.Entities.Customer, CreateCustomerCommand>.MappClasses(request);
         await _uw.GetRepository<Domain.Entities.Customer>().AddAsync(inputData, cancellationToken, true);
 

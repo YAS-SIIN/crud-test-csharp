@@ -19,7 +19,10 @@ public static class EnumResponses
                           
     [Display(Name = "Internal error")]
     public const int InternalError = 102;
-                          
+
+    [Display(Name = "Data is repeated.")]
+    public const int RepeatedData = 103;
+
     [Display(Name = "Done.")]
     public const int Success = 200;
 

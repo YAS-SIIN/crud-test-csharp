@@ -21,17 +21,15 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         _context = context; 
         _dbSet = _context.Set<T>();
     }
-
-    public bool ExistData()
+      
+    public bool ExistData(Expression<Func<T, bool>> predicate = null)
     {
-        return _dbSet.Any();
-    }
+        if (predicate is null)
+            return _dbSet.Any();
 
-    public bool ExistData(Expression<Func<T, bool>> predicate)
-    {
-        return _dbSet.Where(predicate).Any();
+        return _dbSet.Any(predicate);
     }
-
+ 
     public IQueryable<T> GetAll()
     {
         return _dbSet;
@@ -111,14 +109,13 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     //--------------
     #region Async Methods
 
-    public async Task<bool> ExistDataAsync(CancellationToken cancellationToken)
+    public async Task<bool> ExistDataAsync(CancellationToken cancellationToken, Expression<Func<T, bool>> predicate = null)
     {
-        return await _dbSet.AnyAsync(cancellationToken);
-    }
-    public async Task<bool> ExistDataAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
-    {
-        return await _dbSet.Where(predicate).AnyAsync(cancellationToken);
-    }
+        if (predicate is null)
+            return await _dbSet.AnyAsync(cancellationToken);
+
+        return await _dbSet.AnyAsync(predicate, cancellationToken);
+    } 
 
     public async Task<IQueryable<T>> GetAllAsync(CancellationToken cancellationToken)
     {
