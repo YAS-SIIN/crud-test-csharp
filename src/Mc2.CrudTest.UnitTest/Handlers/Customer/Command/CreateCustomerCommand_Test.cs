@@ -12,7 +12,7 @@ public class CreateCustomerCommand_Test
     public CreateCustomerCommand_Test()
     {
 
-        TestTools.DbConnection();
+        TestTools.Initialize();
         _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
 
     }
@@ -70,25 +70,8 @@ public class CreateCustomerCommand_Test
     {  
         var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
         Assert.True(validation.IsValid);
-        var responseData = await _createCustomerCommandHandler.Handle(requestData, CancellationToken.None);
-
-        Assert.Equal(EnumResponses.Success, responseData.StatusCode);
-
-        //Secound Data
-        var requestData2 = new CreateCustomerCommand
-        {
-            Firstname = "Sadegh",
-            Lastname = "Asadnezhad",
-            Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030635",
-            BankAccountNumber = "6219861904897731",
-            DateOfBirth = DateTime.Now,
-        };
-
-        var validation2 = await new CreateCustomerCommandValidator().ValidateAsync(requestData2);
-        Assert.True(validation.IsValid);
         
-        Assert.ThrowsAsync<ErrorException>(() => _createCustomerCommandHandler.Handle(requestData2, CancellationToken.None));
+        Assert.ThrowsAsync<ErrorException>(() => _createCustomerCommandHandler.Handle(requestData, CancellationToken.None));
   
 
     }

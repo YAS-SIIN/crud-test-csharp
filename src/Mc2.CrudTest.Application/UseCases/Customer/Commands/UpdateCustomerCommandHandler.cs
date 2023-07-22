@@ -20,13 +20,24 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 
     public async Task<ResultDto<GetCustomerResponse>> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
     {
+        var inputData = await _uw.GetRepository<Domain.Entities.Customer>().GetByIdAsync((object)request.Id, cancellationToken);
+
+        if (inputData is null && inputData is not Domain.Entities.Customer)
+            throw new ErrorException(EnumResponses.NotFound, "Data not found.");
 
         var emailExist = await _uw.GetRepository<Domain.Entities.Customer>().ExistDataAsync(cancellationToken, x => x.Email.Equals(request.Email) && x.Id != request.Id);
 
         if (emailExist)
             throw new ErrorException(EnumResponses.RepeatedData, "Email is repeated.");
          
-        Domain.Entities.Customer inputData = Mapper<Domain.Entities.Customer, UpdateCustomerCommand>.MappClasses(request);
+        inputData.Id = request.Id;
+        inputData.Firstname = request?.Firstname;
+        inputData.Lastname = request?.Lastname;
+        inputData.PhoneNumber = request?.PhoneNumber;
+        inputData.Email = request?.Email;
+        inputData.BankAccountNumber = request?.BankAccountNumber;
+        inputData.DateOfBirth = request.DateOfBirth.Value;
+
         _uw.GetRepository<Domain.Entities.Customer>().Update(inputData, true);
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);
