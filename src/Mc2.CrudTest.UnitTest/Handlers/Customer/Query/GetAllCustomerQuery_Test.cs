@@ -7,7 +7,8 @@ using Mc2.CrudTest.Core.Commands.Customer;
 using Mc2.CrudTest.Core.Queries.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
 using Mc2.CrudTest.Domain.Enums;
- 
+using Mc2.CrudTest.Presentation.Shared.Tools;
+
 namespace Mc2.CrudTest.UnitTest.Handlers.Customer.Query;
 
 public class GetAllCustomerQuery_Test
