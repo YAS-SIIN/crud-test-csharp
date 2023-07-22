@@ -16,7 +16,7 @@ public class DataGenerator
     /// Initializing new data
     /// </summary>
     /// <param name="serviceProvider"></param>
-    public static void Initialize(IServiceProvider serviceProvider)
+    public static void InitializeData(IServiceProvider serviceProvider)
     {
         var _unitOfWork = serviceProvider.GetRequiredService<IUnitOfWork>();
         // Add new customer

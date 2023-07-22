@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.IoC", "src\Mc2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Infra.Data", "src\Mc2.CrudTest.Infra\Data\Mc2.CrudTest.Infra.Data\Mc2.CrudTest.Infra.Data.csproj", "{72B8A997-3F9A-4281-A152-9E4624CE1A7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.UnitTest", "Mc2.CrudTest.UnitTest\Mc2.CrudTest.UnitTest.csproj", "{D1E863E1-5A6E-424B-AF8D-912A0CCB4F50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.UnitTest", "src\Mc2.CrudTest.UnitTest\Mc2.CrudTest.UnitTest.csproj", "{D1E863E1-5A6E-424B-AF8D-912A0CCB4F50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

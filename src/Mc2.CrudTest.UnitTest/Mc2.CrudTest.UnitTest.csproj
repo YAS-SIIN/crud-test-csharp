@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.9" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="xunit" Version="2.4.2" />
@@ -25,11 +26,12 @@
 
   <ItemGroup>
     <Folder Include="Handlers\Customer\Query\" />
+    <Folder Include="Handlers\Customer\Query\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Mc2.CrudTest.Application\Mc2.CrudTest.Application.csproj" />
-    <ProjectReference Include="..\src\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj" />
+    <ProjectReference Include="..\Mc2.CrudTest.Application\Mc2.CrudTest.Application.csproj" />
+    <ProjectReference Include="..\Mc2.CrudTest.Infra\Data\Mc2.CrudTest.Infra.Data\Mc2.CrudTest.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

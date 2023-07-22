@@ -44,7 +44,7 @@ public class Program
         {
             var services = scope.ServiceProvider;
             var context = services.GetRequiredService<IUnitOfWork>();
-            DataGenerator.Initialize(services);
+            DataGenerator.InitializeData(services);
         }
 
 
