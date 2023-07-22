@@ -70,8 +70,8 @@ public class CreateCustomerCommand_Test
     {  
         var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
         Assert.True(validation.IsValid);
-        
-        Assert.ThrowsAsync<ErrorException>(() => _createCustomerCommandHandler.Handle(requestData, CancellationToken.None));
+
+        await Assert.ThrowsAsync<ErrorException>(() => _createCustomerCommandHandler.Handle(requestData, CancellationToken.None));
   
 
     }

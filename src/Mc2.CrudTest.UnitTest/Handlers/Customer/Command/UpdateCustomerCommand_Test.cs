@@ -73,7 +73,7 @@ public class UpdateCustomerCommand_Test
         var validation = await new UpdateCustomerCommandValidator().ValidateAsync(requestData);
         Assert.True(validation.IsValid);
 
-        Assert.ThrowsAsync<ErrorException>(() => _updateCustomerCommandHandler.Handle(requestData, CancellationToken.None));
+       await Assert.ThrowsAsync<ErrorException>(() => _updateCustomerCommandHandler.Handle(requestData, CancellationToken.None));
 
 
     }
