@@ -11,15 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Presentation.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.AcceptanceTests", "tests\Mc2.CrudTest.AcceptanceTests\Mc2.CrudTest.AcceptanceTests.csproj", "{6776DF76-1054-486C-A79A-57100C47032F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.Application", "src\Mc2.CrudTest.Application\Mc2.CrudTest.Application.csproj", "{37FA7BD2-4DE7-4F22-BFD8-7A17C8828894}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Application", "src\Mc2.CrudTest.Application\Mc2.CrudTest.Application.csproj", "{37FA7BD2-4DE7-4F22-BFD8-7A17C8828894}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.Core", "src\Mc2.CrudTest.Core\Mc2.CrudTest.Core.csproj", "{29668EA2-BE86-459F-A40B-CDC1685911B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Core", "src\Mc2.CrudTest.Core\Mc2.CrudTest.Core.csproj", "{29668EA2-BE86-459F-A40B-CDC1685911B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.Domain", "src\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj", "{67EB8FED-2C14-4D74-8262-0808342B46C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Domain", "src\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj", "{67EB8FED-2C14-4D74-8262-0808342B46C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.IoC", "src\Mc2.CrudTest.IoC\Mc2.CrudTest.IoC.csproj", "{E27193D1-4479-46A4-80B2-256C28916B44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.IoC", "src\Mc2.CrudTest.IoC\Mc2.CrudTest.IoC.csproj", "{E27193D1-4479-46A4-80B2-256C28916B44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.Infra.Data", "src\Mc2.CrudTest.Infra\Data\Mc2.CrudTest.Infra.Data\Mc2.CrudTest.Infra.Data.csproj", "{72B8A997-3F9A-4281-A152-9E4624CE1A7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Infra.Data", "src\Mc2.CrudTest.Infra\Data\Mc2.CrudTest.Infra.Data\Mc2.CrudTest.Infra.Data.csproj", "{72B8A997-3F9A-4281-A152-9E4624CE1A7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.UnitTest", "Mc2.CrudTest.UnitTest\Mc2.CrudTest.UnitTest.csproj", "{D1E863E1-5A6E-424B-AF8D-912A0CCB4F50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{72B8A997-3F9A-4281-A152-9E4624CE1A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B8A997-3F9A-4281-A152-9E4624CE1A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B8A997-3F9A-4281-A152-9E4624CE1A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1E863E1-5A6E-424B-AF8D-912A0CCB4F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E863E1-5A6E-424B-AF8D-912A0CCB4F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E863E1-5A6E-424B-AF8D-912A0CCB4F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E863E1-5A6E-424B-AF8D-912A0CCB4F50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
