@@ -4,15 +4,10 @@ using Mc2.CrudTest.Domain.DTOs.Exceptions;
 using Mc2.CrudTest.Domain.Enums;
 using Mc2.CrudTest.Presentation.Shared.Tools;
 
-using Microsoft.VisualStudio.TestPlatform.Common;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
-
 using NUnit.Framework;
 
 using System;
 using TechTalk.SpecFlow;
-
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
 namespace Mc2.CrudTest.AcceptanceTests.Steps;
 
@@ -28,9 +23,8 @@ public class CreateCustomerStepDefinitions
         TestTools.Initialize();
         _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
     }
-
-    [Given(@"customer information \((.*),(.*),(.*),(.*),(.*),(.*)\)")]
-    public void GivenCustomerInformation(string firstName, string lastName, DateTime dateOfBirth,
+    [Given(@"Create customer information \((.*),(.*),(.*),(.*),(.*),(.*)\)")]
+    public void GivenCreateCustomerInformation(string firstName, string lastName, DateTime dateOfBirth,
     string phoneNumber, string email, string bankAccountNumber)
     {
         _requestData = new CreateCustomerCommand
@@ -44,33 +38,31 @@ public class CreateCustomerStepDefinitions
         };
     }
 
-    [When(@"validation is true")]
-    public async Task WhenValidationIsTrue()
+    [When(@"Create validation is true")]
+    public async Task WhenCreateValidationIsTrue()
     {
         var validation = await new CreateCustomerCommandValidator().ValidateAsync(_requestData);
         Assert.True(validation.IsValid);
-
+    }
+    [Then(@"Create validation should be false")]
+    public async Task ThenCreateValidationShouldBeFalse()
+    {
+        var validation = await new CreateCustomerCommandValidator().ValidateAsync(_requestData);
+        Assert.False(validation.IsValid);
     }
 
-    [Then(@"result should be succeeded")]
-    public async Task ThenResultShouldBeSucceeded()
+    [Then(@"Create result should be succeeded")]
+    public async Task ThenCreateResultShouldBeSucceeded()
     {
         var responseData = await _createCustomerCommandHandler.Handle(_requestData, CancellationToken.None);
 
         Assert.AreEqual(EnumResponses.Success, responseData.StatusCode);
     }
 
-
-    [Then(@"validation should be false")]
-    public async Task ThenValidationShouldBeFalse()
-    {
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(_requestData);
-        Assert.False(validation.IsValid);
-    }
-
-    [Then(@"result should be failed")]
-    public void ThenResultShouldBeFailed()
-    {
+    [Then(@"Create result should be failed")]
+    public void ThenCreateResultShouldBeFailed()
+    { 
         Assert.ThrowsAsync<ErrorException>(() => _createCustomerCommandHandler.Handle(_requestData, CancellationToken.None));
     }
+
 }
