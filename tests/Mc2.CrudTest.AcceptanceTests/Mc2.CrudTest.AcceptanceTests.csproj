@@ -26,4 +26,8 @@
       <ProjectReference Include="..\..\src\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\" />
+    </ItemGroup>
+
 </Project>

@@ -3,7 +3,8 @@ using Mc2.CrudTest.Application.UseCases.Customer.Commands;
 using Mc2.CrudTest.Core.Commands.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
 using Mc2.CrudTest.Domain.Enums;
- 
+using Mc2.CrudTest.Presentation.Shared.Tools;
+
 namespace Mc2.CrudTest.UnitTest.Handlers.Customer.Command;
 
 public class CreateCustomerCommand_Test
@@ -39,7 +40,7 @@ public class CreateCustomerCommand_Test
     }
     
     [Theory]
-    [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithFirstnameIsEmpty_ShouldBeFailed), MemberType = typeof(CreateCustomerCommand_Data))]
+    [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithLastnameIsEmpty_ShouldBeFailed), MemberType = typeof(CreateCustomerCommand_Data))]
     public async Task CreateCustomer_WhenLastnameIsEmpty_ShouldBeFailed(CreateCustomerCommand requestData)
     {  
         var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);

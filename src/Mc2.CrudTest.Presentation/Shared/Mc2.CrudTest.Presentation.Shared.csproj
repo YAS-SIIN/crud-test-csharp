@@ -10,10 +10,13 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.6.0" />
     <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.9" />
+    <PackageReference Include="Moq" Version="4.18.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj" />
+    <ProjectReference Include="..\..\Mc2.CrudTest.Infra\Data\Mc2.CrudTest.Infra.Data\Mc2.CrudTest.Infra.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

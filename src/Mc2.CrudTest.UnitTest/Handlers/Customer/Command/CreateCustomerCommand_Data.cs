@@ -16,8 +16,8 @@ public class CreateCustomerCommand_Data
             Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030636",
-            BankAccountNumber= "6219861904897732",
+            PhoneNumber = "+989306030639",
+            BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
     };
@@ -29,8 +29,8 @@ public class CreateCustomerCommand_Data
             Firstname = "",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030636",
-            BankAccountNumber= "6219861904897732",
+            PhoneNumber = "+989306030639",
+            BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
     };
@@ -42,8 +42,8 @@ public class CreateCustomerCommand_Data
             Firstname = "Yasin",
             Lastname = "",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030636",
-            BankAccountNumber= "6219861904897732",
+            PhoneNumber = "+989306030639",
+            BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
     };
@@ -55,7 +55,7 @@ public class CreateCustomerCommand_Data
              Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030636",
+            PhoneNumber = "+989306030639",
             BankAccountNumber = "6219",
             DateOfBirth = DateTime.Now,
         }
@@ -68,8 +68,8 @@ public class CreateCustomerCommand_Data
              Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "yasin",
-            PhoneNumber = "+989306030636",
-            BankAccountNumber= "6219861904897732",
+            PhoneNumber = "+989306030639",
+            BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
     };
@@ -81,8 +81,8 @@ public class CreateCustomerCommand_Data
             Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030636",
-            BankAccountNumber= "6219861904897732",
+            PhoneNumber = "+989306030639",
+            BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
     };

@@ -5,7 +5,8 @@ using Mc2.CrudTest.Application.UseCases.Customer.Commands;
 using Mc2.CrudTest.Core.Commands.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
 using Mc2.CrudTest.Domain.Enums;
- 
+using Mc2.CrudTest.Presentation.Shared.Tools;
+
 namespace Mc2.CrudTest.UnitTest.Handlers.Customer.Command;
 
 public class DeleteCustomerCommand_Test

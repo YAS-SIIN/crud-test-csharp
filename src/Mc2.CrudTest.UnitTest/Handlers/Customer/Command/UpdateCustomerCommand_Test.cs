@@ -5,7 +5,8 @@ using Mc2.CrudTest.Application.UseCases.Customer.Commands;
 using Mc2.CrudTest.Core.Commands.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
 using Mc2.CrudTest.Domain.Enums;
- 
+using Mc2.CrudTest.Presentation.Shared.Tools;
+
 namespace Mc2.CrudTest.UnitTest.Handlers.Customer.Command;
 
 public class UpdateCustomerCommand_Test
@@ -41,7 +42,7 @@ public class UpdateCustomerCommand_Test
     }
     
     [Theory]
-    [MemberData(nameof(UpdateCustomerCommand_Data.SetDataFor_UpdateCustomer_WithFirstnameIsEmpty_ShouldBeFailed), MemberType = typeof(UpdateCustomerCommand_Data))]
+    [MemberData(nameof(UpdateCustomerCommand_Data.SetDataFor_UpdateCustomer_WithLastnameIsEmpty_ShouldBeFailed), MemberType = typeof(UpdateCustomerCommand_Data))]
     public async Task UpdateCustomer_WhenLastnameIsEmpty_ShouldBeFailed(UpdateCustomerCommand requestData)
     {  
         var validation = await new UpdateCustomerCommandValidator().ValidateAsync(requestData);
