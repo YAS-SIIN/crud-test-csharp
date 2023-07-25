@@ -17,7 +17,7 @@ public class UpdateCustomerCommand_Data
             Firstname = "YasinTest",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030639",
+            PhoneNumber = "+989306030638",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -31,7 +31,7 @@ public class UpdateCustomerCommand_Data
             Firstname = "",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030639",
+            PhoneNumber = "+989306030638",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -45,7 +45,7 @@ public class UpdateCustomerCommand_Data
             Firstname = "Yasin",
             Lastname = "",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030639",
+            PhoneNumber = "+989306030638",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -59,7 +59,7 @@ public class UpdateCustomerCommand_Data
              Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030639",
+            PhoneNumber = "+989306030638",
             BankAccountNumber = "6219",
             DateOfBirth = DateTime.Now,
         }
@@ -72,7 +72,7 @@ public class UpdateCustomerCommand_Data
              Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "yasin",
-            PhoneNumber = "+989306030639",
+            PhoneNumber = "+989306030638",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -86,7 +86,7 @@ public class UpdateCustomerCommand_Data
             Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "s@y.com",
-            PhoneNumber = "+989306030639",
+            PhoneNumber = "+989306030638",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
