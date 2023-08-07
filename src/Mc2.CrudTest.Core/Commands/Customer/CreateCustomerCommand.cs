@@ -72,7 +72,8 @@ public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCo
             .NotEmpty().WithMessage("Enter {PropertyName}.")
             .MaximumLength(15).WithMessage("Maximum size of {PropertyName} is {MaxLength}.")
             .Must(x => x.StartsWith("+") && PhoneNumberUtil.GetInstance()
-                .IsValidNumber(PhoneNumberUtil.GetInstance().Parse(x, "")))
+                .IsValidNumber(PhoneNumberUtil.GetInstance().Parse(x, "")) && PhoneNumberUtil.GetInstance()
+                .GetNumberType(PhoneNumberUtil.GetInstance().Parse(x, "")) == PhoneNumbers.PhoneNumberType.MOBILE)
             .WithMessage("Enter Valid {PropertyName}.");
 
         RuleFor(x => x.BankAccountNumber)

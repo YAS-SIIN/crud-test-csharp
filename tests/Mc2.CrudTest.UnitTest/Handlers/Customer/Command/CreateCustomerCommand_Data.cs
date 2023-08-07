@@ -36,6 +36,33 @@ public class CreateCustomerCommand_Data
     };
     }
     
+    
+    public static IEnumerable<object[]> SetDataFor_Check_PhoneNumberIsMobile_ShouldBeSuccess()
+    {
+        yield return new object[] { new CreateCustomerCommand() {
+            Firstname = "Yasin",
+            Lastname = "Asadnezhad",
+            Email = "yasin@gmail.com",
+            PhoneNumber = "+989121234567",
+            BankAccountNumber= "6280231377560890",
+            DateOfBirth = DateTime.Now,
+        }
+    };
+    }
+    
+    public static IEnumerable<object[]> SetDataFor_Check_PhoneNumberIsMobile_ShouldBeFaild()
+    {
+        yield return new object[] { new CreateCustomerCommand() {
+            Firstname = "Yasin",
+            Lastname = "Asadnezhad",
+            Email = "yasin@gmail.com",
+            PhoneNumber = "+982188776655",
+            BankAccountNumber= "6280231377560890",
+            DateOfBirth = DateTime.Now,
+        }
+    };
+    }
+    
     public static IEnumerable<object[]> SetDataFor_CreateCustomer_WithLastnameIsEmpty_ShouldBeFailed()
     {
         yield return new object[] { new CreateCustomerCommand() {
