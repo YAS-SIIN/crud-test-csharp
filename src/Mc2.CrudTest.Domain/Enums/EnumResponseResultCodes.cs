@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mc2.CrudTest.Domain.Enums;
 
-public enum EnumResponseErrors : int
+public enum EnumResponseResultCodes : int
 {
     [Display(Name = "Data not found.")]
     NotFound = 100,

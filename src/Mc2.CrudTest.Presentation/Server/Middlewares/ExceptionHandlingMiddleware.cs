@@ -26,7 +26,7 @@ namespace Mc2.CrudTest.Presentation.Server.Middlewares
         private static async Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
             int statusCode = (int)EnumResponseStatus.BadRequest;
-            ErrorException errorException = new ErrorException(statusCode, (int)EnumResponseErrors.Error, EnumResponseErrors.Error.GetDisplayName());
+            ErrorException errorException = new ErrorException(statusCode, (int)EnumResponseResultCodes.Error, EnumResponseResultCodes.Error.GetDisplayName());
             IDictionary<string, string[]> errors = new Dictionary<string, string[]>();
             try
             {

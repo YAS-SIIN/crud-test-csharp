@@ -1,5 +1,8 @@
 
 using Mc2.CrudTest.Core.Commands.Customer;
+using Mc2.CrudTest.Domain.DTOs.Customer;
+using Mc2.CrudTest.Domain.DTOs.Exceptions;
+using Mc2.CrudTest.Domain.Enums;
 using Mc2.CrudTest.Presentation;
 using Microsoft.AspNetCore.Mvc.Testing;
 using NUnit.Framework;
@@ -53,7 +56,7 @@ public class CreateCustomerStepDefinitions
         Assert.True(response.IsSuccessStatusCode);
         var result = await response.Content.ReadAsStringAsync();
         Assert.IsNotNull(result);
-        var responseData = JsonSerializer.Deserialize<object>(result);
+        var responseData = JsonSerializer.Deserialize<ResultDto<object>>(result);
         Assert.IsNotNull(responseData);
     }
 
@@ -67,8 +70,10 @@ public class CreateCustomerStepDefinitions
         Assert.AreNotEqual(HttpStatusCode.OK, response.StatusCode);
         Assert.False(response.IsSuccessStatusCode);
         var result = await response.Content.ReadAsStringAsync();
-        var responseData = JsonSerializer.Deserialize<object>(result);
+        var responseData = JsonSerializer.Deserialize<ResultDto<object>>(result);
         Assert.IsNotNull(responseData);
+        Assert.AreNotEqual(EnumResponseResultCodes.Success, responseData.ResultCode);
+
     }
 
 }

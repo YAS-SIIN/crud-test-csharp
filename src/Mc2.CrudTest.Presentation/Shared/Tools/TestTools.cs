@@ -16,10 +16,9 @@ using System.Threading.Tasks;
 namespace Mc2.CrudTest.Presentation.Shared.Tools;
 
 public static class TestTools
-{
-    public static DbContextOptions<Mc2CrudTestDbContext>? contextOptions;
-    public static Mc2CrudTestDbContext? dbContext;
-    public static Mock<UnitOfWork>? mockUnitOfWork;
+{ 
+    public static Mc2CrudTestDbContext? _dbContext;
+    public static Mock<UnitOfWork>? _mockUnitOfWork;
 
     public static void Initialize()
     {
@@ -32,11 +31,12 @@ public static class TestTools
     /// </summary>
     public static void InitializeDBContext()
     {
-        var dbContextOptionsBuilder = new DbContextOptionsBuilder<Mc2CrudTestDbContext>();
+        DbContextOptionsBuilder<Mc2CrudTestDbContext> dbContextOptionsBuilder = new DbContextOptionsBuilder<Mc2CrudTestDbContext>();
+
         dbContextOptionsBuilder.UseInMemoryDatabase("Mc2CrudTestDbContext");
-        contextOptions = dbContextOptionsBuilder.Options;
-        dbContext = new Mc2CrudTestDbContext(contextOptions);
-        mockUnitOfWork = new Mock<UnitOfWork>(dbContext);
+        DbContextOptions<Mc2CrudTestDbContext>? contextOptions = dbContextOptionsBuilder.Options;
+        _dbContext = new Mc2CrudTestDbContext(contextOptions);
+        _mockUnitOfWork = new Mock<UnitOfWork>(_dbContext);
     }
     /// <summary>
     /// Initializing new data
@@ -44,7 +44,7 @@ public static class TestTools
     /// <param name="serviceProvider"></param>
     public static void InitializeData()
     {
-        var _unitOfWork = new UnitOfWork(dbContext);
+        var _unitOfWork = new UnitOfWork(_dbContext);
 
         // Add new customer
 

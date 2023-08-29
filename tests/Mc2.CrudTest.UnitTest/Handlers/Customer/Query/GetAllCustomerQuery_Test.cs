@@ -18,7 +18,7 @@ public class GetAllCustomerQuery_Test
     {
 
         TestTools.Initialize();
-        _getAllCustomerQueryHandler = new GetAllCustomerQueryHandler(TestTools.mockUnitOfWork.Object);
+        _getAllCustomerQueryHandler = new GetAllCustomerQueryHandler(TestTools._mockUnitOfWork.Object);
 
     }
 

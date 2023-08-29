@@ -22,12 +22,12 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
         var inputData = await _uw.GetRepository<Domain.Entities.Customer>().GetByIdAsync((object)request.Id, cancellationToken);
 
         if (inputData is null && inputData is not Domain.Entities.Customer)
-            throw new ErrorException((int)EnumResponseStatus.NotFound, (int)EnumResponseErrors.NotFound, EnumResponseErrors.NotFound.ToString()); 
+            throw new ErrorException((int)EnumResponseStatus.NotFound, (int)EnumResponseResultCodes.NotFound, EnumResponseResultCodes.NotFound.ToString()); 
 
         var emailExist = await _uw.GetRepository<Domain.Entities.Customer>().ExistDataAsync(cancellationToken, x => x.Email.Equals(request.Email) && x.Id != request.Id);
 
         if (emailExist)
-            throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseErrors.RepeatedData, "Email is repeated.");
+            throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseResultCodes.RepeatedData, "Email is repeated.");
          
         inputData = Mapper<Domain.Entities.Customer, UpdateCustomerCommand>.MappClasses(request);
 
@@ -35,6 +35,6 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);
 
-        return ResultDto<GetCustomerResponse>.ReturnData(outputData, (int)EnumResponseStatus.OK, (int)EnumResponseErrors.Success, EnumResponseErrors.Success.GetDisplayName());
+        return ResultDto<GetCustomerResponse>.ReturnData(outputData, (int)EnumResponseStatus.OK, (int)EnumResponseResultCodes.Success, EnumResponseResultCodes.Success.GetDisplayName());
     }
 }

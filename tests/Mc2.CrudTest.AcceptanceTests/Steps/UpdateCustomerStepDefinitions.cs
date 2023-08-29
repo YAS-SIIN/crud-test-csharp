@@ -21,7 +21,7 @@ public class UpdateCustomerStepDefinitions
     {
         _requestData = requestData;
         TestTools.Initialize();
-        _UpdateCustomerCommandHandler = new UpdateCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
+        _UpdateCustomerCommandHandler = new UpdateCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
     }
     [Given(@"Update customer information \((\d+),(.*),(.*),(.*),(.*),(.*),(.*)\)")]
     public void GivenUpdateCustomerInformation(int id, string firstName, string lastName, DateTime dateOfBirth,

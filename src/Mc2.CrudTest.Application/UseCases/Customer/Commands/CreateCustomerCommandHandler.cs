@@ -23,13 +23,13 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
         var emailExist = await _uw.GetRepository<Domain.Entities.Customer>().ExistDataAsync(cancellationToken, x=>x.Email.Equals(request.Email));
 
         if (emailExist)
-            throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseErrors.RepeatedData, "Email is repeated.");
+            throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseResultCodes.RepeatedData, "Email is repeated.");
          
         Domain.Entities.Customer inputData = Mapper<Domain.Entities.Customer, CreateCustomerCommand>.MappClasses(request);
         await _uw.GetRepository<Domain.Entities.Customer>().AddAsync(inputData, cancellationToken, true);
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);
 
-        return ResultDto<GetCustomerResponse>.ReturnData(outputData, (int)EnumResponseStatus.OK, (int)EnumResponseErrors.Success, EnumResponseErrors.Success.GetDisplayName());
+        return ResultDto<GetCustomerResponse>.ReturnData(outputData, (int)EnumResponseStatus.OK, (int)EnumResponseResultCodes.Success, EnumResponseResultCodes.Success.GetDisplayName());
     }
 }

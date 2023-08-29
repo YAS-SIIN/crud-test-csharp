@@ -16,7 +16,7 @@ public class CreateCustomerCommand_Test
     public CreateCustomerCommand_Test()
     {
         TestTools.Initialize();
-        _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
+        _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
     }
 
     [Theory]

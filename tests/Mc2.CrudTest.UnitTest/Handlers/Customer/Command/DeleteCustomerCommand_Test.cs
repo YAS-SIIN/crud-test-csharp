@@ -16,7 +16,7 @@ public class DeleteCustomerCommand_Test
     {
 
         TestTools.Initialize();
-        _deleteCustomerCommandHandler = new DeleteCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
+        _deleteCustomerCommandHandler = new DeleteCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
 
     }
 

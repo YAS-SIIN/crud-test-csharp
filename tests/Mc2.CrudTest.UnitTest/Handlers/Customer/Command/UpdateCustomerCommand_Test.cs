@@ -16,7 +16,7 @@ public class UpdateCustomerCommand_Test
     {
 
         TestTools.Initialize();
-        _updateCustomerCommandHandler = new UpdateCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
+        _updateCustomerCommandHandler = new UpdateCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
 
     }
 

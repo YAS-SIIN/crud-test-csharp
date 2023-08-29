@@ -26,12 +26,12 @@ public class GetCustomerQueryHandler : IRequestHandler<GetCustomerQuery, ResultD
         var response = await _uw.GetRepository<Domain.Entities.Customer>().GetByIdAsync(request.Id, cancellationToken); 
 
         if (response is not Domain.Entities.Customer)
-            throw new ErrorException((int)EnumResponseStatus.NotFound, (int)EnumResponseErrors.NotFound, EnumResponseErrors.NotFound.ToString()); 
+            throw new ErrorException((int)EnumResponseStatus.NotFound, (int)EnumResponseResultCodes.NotFound, EnumResponseResultCodes.NotFound.ToString()); 
          
         GetCustomerResponse resData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(response);
 
 
-        return ResultDto<GetCustomerResponse>.ReturnData(resData, (int)EnumResponseStatus.OK, (int)EnumResponseErrors.Success, EnumResponseErrors.Success.GetDisplayName()); 
+        return ResultDto<GetCustomerResponse>.ReturnData(resData, (int)EnumResponseStatus.OK, (int)EnumResponseResultCodes.Success, EnumResponseResultCodes.Success.GetDisplayName()); 
     }
  
 }

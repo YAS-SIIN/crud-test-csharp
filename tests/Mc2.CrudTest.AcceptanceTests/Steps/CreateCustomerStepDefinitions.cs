@@ -19,7 +19,7 @@ public class CreateCustomerStepDefinitions
     {
         _requestData = requestData;
         TestTools.Initialize();
-        _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
+        _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
     }
     [Given(@"Create customer information \((.*),(.*),(.*),(.*),(.*),(.*)\)")]
     public void GivenCreateCustomerInformation(string firstName, string lastName, DateTime dateOfBirth,

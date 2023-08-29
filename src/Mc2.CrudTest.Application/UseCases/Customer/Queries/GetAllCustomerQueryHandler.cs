@@ -32,7 +32,7 @@ public class GetAllCustomerQueryHandler : IRequestHandler<GetAllCustomerQuery, R
             DateOfBirth = x.DateOfBirth, PhoneNumber = x.PhoneNumber, Email = x.Email, BankAccountNumber = x.BankAccountNumber, Id = x.Id
             }).ToList();
          
-        return ResultDto<IList<GetCustomerResponse>>.ReturnData(resData, (int)EnumResponseStatus.OK, (int)EnumResponseErrors.Success, EnumResponseErrors.Success.GetDisplayName()); 
+        return ResultDto<IList<GetCustomerResponse>>.ReturnData(resData, (int)EnumResponseStatus.OK, (int)EnumResponseResultCodes.Success, EnumResponseResultCodes.Success.GetDisplayName()); 
     }
  
 }
