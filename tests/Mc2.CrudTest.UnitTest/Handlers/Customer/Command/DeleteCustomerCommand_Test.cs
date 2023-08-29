@@ -27,7 +27,7 @@ public class DeleteCustomerCommand_Test
         var requestData = new DeleteCustomerCommand { Id = id };
         var responseData = await _deleteCustomerCommandHandler.Handle(requestData, CancellationToken.None);
 
-        Assert.Equal(EnumResponses.Success, responseData.StatusCode);
+        Assert.Equal((int)EnumResponseStatus.OK, responseData.StatusCode);
     }
 
     [Theory]

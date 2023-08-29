@@ -1,5 +1,4 @@
-﻿using Mc2.CrudTest.Domain.Entities;
-using Mc2.CrudTest.Domain.Enums;
+﻿using Mc2.CrudTest.Domain.Entities; 
 using Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
 using Mc2.CrudTest.Infra.Data.Context;
 using Mc2.CrudTest.Infra.Data.UnitOfWork;

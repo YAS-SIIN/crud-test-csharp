@@ -1,12 +1,11 @@
-﻿using Mc2.CrudTest.Domain.Enums;
-using Mc2.CrudTest.Domain.DTOs.Customer;
+﻿using Mc2.CrudTest.Domain.DTOs.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
-
 using Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
 using Mc2.CrudTest.Presentation.Shared.Mapper;
-
 using MediatR;
 using Mc2.CrudTest.Core.Commands.Customer;
+using Mc2.CrudTest.Domain.Enums;
+using Mc2.CrudTest.Presentation.Shared.Tools;
 
 namespace Mc2.CrudTest.Application.UseCases.Customer.Commands;
 
@@ -23,25 +22,19 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
         var inputData = await _uw.GetRepository<Domain.Entities.Customer>().GetByIdAsync((object)request.Id, cancellationToken);
 
         if (inputData is null && inputData is not Domain.Entities.Customer)
-            throw new ErrorException(EnumResponses.NotFound, "Data not found.");
+            throw new ErrorException((int)EnumResponseStatus.NotFound, (int)EnumResponseErrors.NotFound, EnumResponseErrors.NotFound.ToString()); 
 
         var emailExist = await _uw.GetRepository<Domain.Entities.Customer>().ExistDataAsync(cancellationToken, x => x.Email.Equals(request.Email) && x.Id != request.Id);
 
         if (emailExist)
-            throw new ErrorException(EnumResponses.RepeatedData, "Email is repeated.");
+            throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseErrors.RepeatedData, "Email is repeated.");
          
-        inputData.Id = request.Id;
-        inputData.Firstname = request?.Firstname;
-        inputData.Lastname = request?.Lastname;
-        inputData.PhoneNumber = request?.PhoneNumber;
-        inputData.Email = request?.Email;
-        inputData.BankAccountNumber = request?.BankAccountNumber;
-        inputData.DateOfBirth = request.DateOfBirth.Value;
+        inputData = Mapper<Domain.Entities.Customer, UpdateCustomerCommand>.MappClasses(request);
 
         _uw.GetRepository<Domain.Entities.Customer>().Update(inputData, true);
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);
 
-        return ResultDto<GetCustomerResponse>.ReturnData(EnumResponses.Success, outputData);
+        return ResultDto<GetCustomerResponse>.ReturnData(outputData, (int)EnumResponseStatus.OK, (int)EnumResponseErrors.Success, EnumResponseErrors.Success.GetDisplayName());
     }
 }

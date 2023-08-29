@@ -1,7 +1,8 @@
+using Mc2.CrudTest.Domain.Enums;
+
 using Mc2.CrudTest.Application.UseCases.Customer.Commands;
 using Mc2.CrudTest.Core.Commands.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
-using Mc2.CrudTest.Domain.Enums;
 using Mc2.CrudTest.Presentation.Shared.Tools;
 using NUnit.Framework;
 
@@ -56,7 +57,7 @@ public class UpdateCustomerStepDefinitions
     {
         var responseData = await _UpdateCustomerCommandHandler.Handle(_requestData, CancellationToken.None);
 
-        Assert.AreEqual(EnumResponses.Success, responseData.StatusCode);
+        Assert.AreEqual(EnumResponseStatus.OK, responseData.StatusCode);
     }
 
     [Then(@"Update result should be failed")]

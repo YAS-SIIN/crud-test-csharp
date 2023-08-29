@@ -9,6 +9,9 @@ public class ErrorException : Exception
 {
     [DataMember(Name = "error_code")]
     public int ErrorCode { get; set; }
+    
+    [DataMember(Name = "status_code")]
+    public int StatusCode { get; set; }
 
     [DataMember(Name = "error_description")]
     public string ErrorDescription { get; set; }
@@ -19,8 +22,9 @@ public class ErrorException : Exception
     [DataMember(Name = "error_detail")]
     public string ErrorDetail { get; set; }
 
-    public ErrorException(int errorCode, string errorDescription, string traceId = "", string errorDetail="")
+    public ErrorException(int statusCode, int errorCode, string errorDescription, string traceId = "", string errorDetail="")
     {
+        StatusCode = statusCode;
         ErrorCode = errorCode;
         ErrorDescription = errorDescription;
         ErrorDetail = errorDetail;

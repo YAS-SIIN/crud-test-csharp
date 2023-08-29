@@ -1,8 +1,9 @@
 ﻿
+using Mc2.CrudTest.Domain.Enums;
+
 using Mc2.CrudTest.Application.UseCases.Customer.Commands;
 using Mc2.CrudTest.Core.Commands.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
-using Mc2.CrudTest.Domain.Enums;
 using Mc2.CrudTest.Presentation.Shared.Tools;
 
 using PhoneNumbers;
@@ -14,10 +15,8 @@ public class CreateCustomerCommand_Test
     private readonly CreateCustomerCommandHandler _createCustomerCommandHandler;
     public CreateCustomerCommand_Test()
     {
-
         TestTools.Initialize();
         _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools.mockUnitOfWork.Object);
-
     }
 
     [Theory]
@@ -29,7 +28,7 @@ public class CreateCustomerCommand_Test
 
         var responseData = await _createCustomerCommandHandler.Handle(requestData, CancellationToken.None);
 
-        Assert.Equal(EnumResponses.Success, responseData.StatusCode);
+        Assert.Equal((int)EnumResponseStatus.OK, responseData.StatusCode);
     }
 
     [Theory]

@@ -1,11 +1,11 @@
-﻿
+﻿using Mc2.CrudTest.Domain.Enums;
 
 using Mc2.CrudTest.Core.Queries.Customer;
 using Mc2.CrudTest.Domain.DTOs.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
-using Mc2.CrudTest.Domain.Enums;
 using Mc2.CrudTest.Domain.Interfaces.UnitOfWork;
 using Mc2.CrudTest.Presentation.Shared.Mapper;
+using Mc2.CrudTest.Presentation.Shared.Tools;
 
 using MediatR;
 
@@ -31,7 +31,8 @@ public class GetAllCustomerQueryHandler : IRequestHandler<GetAllCustomerQuery, R
             Firstname = x.Firstname, Lastname = x.Lastname, 
             DateOfBirth = x.DateOfBirth, PhoneNumber = x.PhoneNumber, Email = x.Email, BankAccountNumber = x.BankAccountNumber, Id = x.Id
             }).ToList();
-        return ResultDto<IList<GetCustomerResponse>>.ReturnData(EnumResponses.Success, resData);
+         
+        return ResultDto<IList<GetCustomerResponse>>.ReturnData(resData, (int)EnumResponseStatus.OK, (int)EnumResponseErrors.Success, EnumResponseErrors.Success.GetDisplayName()); 
     }
  
 }

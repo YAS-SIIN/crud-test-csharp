@@ -29,7 +29,7 @@ public class UpdateCustomerCommand_Test
 
         var responseUpdateData = await _updateCustomerCommandHandler.Handle(requestData, CancellationToken.None);
 
-        Assert.Equal(EnumResponses.Success, responseUpdateData.StatusCode);
+        Assert.Equal((int)EnumResponseStatus.OK, responseUpdateData.StatusCode);
     }
 
     [Theory]

@@ -1,9 +1,7 @@
 ﻿using Mc2.CrudTest.Domain.DTOs.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
 using System.Text.Json;
-
-using MediatR;
-using Mc2.CrudTest.Domain.Enums;
+using MediatR; 
 using Mc2.CrudTest.Domain.DTOs;
 using System.Net.Http;
 using System;
