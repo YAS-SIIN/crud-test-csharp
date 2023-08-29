@@ -4,6 +4,7 @@ using Mc2.CrudTest.Domain.DTOs;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
 using Mc2.CrudTest.Presentation.Shared.Exceptions;
 using System.Text.Json;
+using Mc2.CrudTest.Presentation.Shared.Tools;
 
 namespace Mc2.CrudTest.Presentation.Server.Middlewares
 {
@@ -24,20 +25,26 @@ namespace Mc2.CrudTest.Presentation.Server.Middlewares
 
         private static async Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
-            var statusCode = httpContext.Response.StatusCode;
+            int statusCode = (int)EnumResponseStatus.BadRequest;
+            ErrorException errorException = new ErrorException(statusCode, (int)EnumResponseErrors.Error, EnumResponseErrors.Error.GetDisplayName());
             IDictionary<string, string[]> errors = new Dictionary<string, string[]>();
+            try
+            {
+                errorException = ((Mc2.CrudTest.Domain.DTOs.Exceptions.ErrorException)exception);
+            }
+            catch { }
             try
             {
                 statusCode = GetStatusCode(exception);
             }
-            catch (Exception) { }
+            catch { }
             try
             {
                 errors = GetErrors(exception);
             }
-            catch (Exception) { }
+            catch { }
 
-            var errorData = ResultDto<ErrorDto>.ReturnData(null, statusCode, (int)EnumResponseErrors.Error, exception?.InnerException?.Message, exception.Message, errors);
+            var errorData = ResultDto<ErrorDto>.ReturnData(null, statusCode, (int)errorException?.ErrorCode, exception?.Message, errorException.ErrorDescription, errors);
 
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = statusCode;
