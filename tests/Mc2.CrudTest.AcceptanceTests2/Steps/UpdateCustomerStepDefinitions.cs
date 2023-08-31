@@ -16,7 +16,7 @@ using System.Text.Json;
 using NUnit.Framework;
 using Mc2.CrudTest.Domain.Enums;
 
-namespace Mc2.CrudTest.AcceptanceTests2
+namespace Mc2.CrudTest.AcceptanceTests2.Steps
 {
     [Binding]
     public class UpdateCustomerStepDefinitions
@@ -31,7 +31,7 @@ namespace Mc2.CrudTest.AcceptanceTests2
             var webApplicationFactory = new WebApplicationFactory<Program>();
             _httpClient = webApplicationFactory.CreateDefaultClient();
         }
-      
+
         [Given(@"Update customer information \((\d+),(.*),(.*),(.*),(.*),(.*),(.*)\)")]
         public void GivenUpdateCustomerInformation(int id, string firstName, string lastName, DateTime dateOfBirth,
         string phoneNumber, string email, string bankAccountNumber)
@@ -46,7 +46,7 @@ namespace Mc2.CrudTest.AcceptanceTests2
                 BankAccountNumber = bankAccountNumber,
                 DateOfBirth = dateOfBirth
             };
-        } 
+        }
 
         [Then(@"Update result should be succeeded")]
         public async Task ThenUpdateResultShouldBeSucceeded()

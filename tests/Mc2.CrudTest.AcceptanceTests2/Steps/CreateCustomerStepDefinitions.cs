@@ -1,4 +1,3 @@
-
 using Mc2.CrudTest.Core.Commands.Customer;
 using Mc2.CrudTest.Domain.DTOs.Customer;
 using Mc2.CrudTest.Domain.DTOs.Exceptions;
@@ -13,16 +12,16 @@ using System.Text;
 using System.Text.Json;
 using TechTalk.SpecFlow;
 
-namespace Mc2.CrudTest.AcceptanceTests2;
+namespace Mc2.CrudTest.AcceptanceTests2.Steps;
 
 
 [Binding]
 public class CreateCustomerStepDefinitions
 {
-    private CreateCustomerCommand _requestData; 
-    private HttpClient _httpClient; 
-    private string apiUri = "/api/customer"; 
-     
+    private CreateCustomerCommand _requestData;
+    private HttpClient _httpClient;
+    private string apiUri = "/api/customer";
+
     public CreateCustomerStepDefinitions(CreateCustomerCommand requestData)
     {
         _requestData = requestData;
@@ -44,14 +43,14 @@ public class CreateCustomerStepDefinitions
             DateOfBirth = dateOfBirth
         };
     }
-     
+
     [Then(@"Create result should be succeeded")]
     public async Task ThenCreateResultShouldBeSucceeded()
     {
         var payload = JsonSerializer.Serialize(_requestData);
 
         HttpContent httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
-        var response =await _httpClient.PostAsync("/api/customer", httpContent, CancellationToken.None);
+        var response = await _httpClient.PostAsync("/api/customer", httpContent, CancellationToken.None);
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         Assert.True(response.IsSuccessStatusCode);
         var result = await response.Content.ReadAsStringAsync();
