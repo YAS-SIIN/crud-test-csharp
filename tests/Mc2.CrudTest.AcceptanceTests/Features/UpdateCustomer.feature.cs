@@ -26,7 +26,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private static string[] featureTags = ((string[])(null));
         
 #line 1 "UpdateCustomer.feature"
 #line hidden
@@ -35,7 +35,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "UpdateCustomer", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "UpdateCustomer", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -47,28 +47,28 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         }
         
         [NUnit.Framework.SetUpAttribute()]
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
         [NUnit.Framework.TearDownAttribute()]
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -77,7 +77,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         [NUnit.Framework.DescriptionAttribute("Update customer successfully when data is valid")]
         [NUnit.Framework.CategoryAttribute("UpdateSuccesfully")]
         [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
-        public virtual void UpdateCustomerSuccessfullyWhenDataIsValid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        public void UpdateCustomerSuccessfullyWhenDataIsValid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "UpdateSuccesfully"};
@@ -94,21 +94,11 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer successfully when data is valid", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer successfully when data is valid", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -131,7 +121,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when first name is small")]
         [NUnit.Framework.TestCaseAttribute("1", "Ya", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
-        public virtual void UpdateCustomerWhenFirstNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        public void UpdateCustomerWhenFirstNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -142,21 +132,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when first name is small", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when first name is small", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -176,7 +156,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when last name is small")]
         [NUnit.Framework.TestCaseAttribute("1", "Yasin", "As", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
-        public virtual void UpdateCustomerWhenLastNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        public void UpdateCustomerWhenLastNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -187,21 +167,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when last name is small", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when last name is small", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -221,7 +191,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when email is invalid")]
         [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin", "6280231377560890", null)]
-        public virtual void UpdateCustomerWhenEmailIsInvalid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        public void UpdateCustomerWhenEmailIsInvalid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -232,21 +202,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when email is invalid", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when email is invalid", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 34
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -266,7 +226,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer with invalid phone number")]
         [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+98930", "yasin@ggmail.com", "6280231377560890", null)]
-        public virtual void UpdateCustomerWithInvalidPhoneNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        public void UpdateCustomerWithInvalidPhoneNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -277,21 +237,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer with invalid phone number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer with invalid phone number", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -311,7 +261,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer with invalid bank account number")]
         [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280", null)]
-        public virtual void UpdateCustomerWithInvalidBankAccountNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        public void UpdateCustomerWithInvalidBankAccountNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -322,21 +272,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer with invalid bank account number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer with invalid bank account number", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 51
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -356,7 +296,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when email is repeated")]
         [NUnit.Framework.TestCaseAttribute("1", "Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "s@y.com", "6280231377560890", null)]
-        public virtual void UpdateCustomerWhenEmailIsRepeated(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        public void UpdateCustomerWhenEmailIsRepeated(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -367,21 +307,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when email is repeated", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when email is repeated", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 60
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }

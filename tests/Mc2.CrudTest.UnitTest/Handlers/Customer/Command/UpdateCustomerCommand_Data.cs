@@ -16,7 +16,7 @@ public class UpdateCustomerCommand_Data
             Id = 1,
             Firstname = "YasinTest",
             Lastname = "Asadnezhad",
-            Email = "yasin@gmail.com",
+            Email = "yassin@gmail.com",
             PhoneNumber = "+989306030638",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,

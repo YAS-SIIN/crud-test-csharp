@@ -29,8 +29,14 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
         if (emailExist)
             throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseResultCodes.RepeatedData, "Email is repeated.");
          
-        inputData = Mapper<Domain.Entities.Customer, UpdateCustomerCommand>.MappClasses(request);
-
+        //inputData = Mapper<Domain.Entities.Customer, UpdateCustomerCommand>.MappClasses(request);
+        inputData.Firstname = request.Firstname;
+        inputData.Lastname = request.Lastname;
+        inputData.DateOfBirth = request.DateOfBirth.Value;
+        inputData.PhoneNumber = request.PhoneNumber;
+        inputData.Email = request.Email;
+        inputData.BankAccountNumber = request.BankAccountNumber;
+       
         _uw.GetRepository<Domain.Entities.Customer>().Update(inputData, true);
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);

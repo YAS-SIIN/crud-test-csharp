@@ -73,7 +73,6 @@ public class CreateCustomerStepDefinitions
         var responseData = JsonSerializer.Deserialize<ResultDto<object>>(result);
         Assert.IsNotNull(responseData);
         Assert.AreNotEqual(EnumResponseResultCodes.Success, responseData.ResultCode);
-
     }
 
 }

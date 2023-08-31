@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Mc2.CrudTest.AcceptanceTests.Features
+namespace Mc2.CrudTest.AcceptanceTests2.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("CreateCustomer")]
-    public partial class CreateCustomerFeature
+    [NUnit.Framework.DescriptionAttribute("UpdateCustomer")]
+    public partial class UpdateCustomerFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "CreateCustomer.feature"
+#line 1 "UpdateCustomer.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CreateCustomer", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "UpdateCustomer", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,26 +74,27 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create customer successfully when data is valid")]
-        [NUnit.Framework.CategoryAttribute("CreateSuccesfully")]
-        [NUnit.Framework.TestCaseAttribute("Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
-        public void CreateCustomerSuccessfullyWhenDataIsValid(string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update customer successfully when data is valid")]
+        [NUnit.Framework.CategoryAttribute("UpdateSuccesfully")]
+        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yassin@ggmail.com", "6280231377560890", null)]
+        public void UpdateCustomerSuccessfullyWhenDataIsValid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CreateSuccesfully"};
+                    "UpdateSuccesfully"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Id", id);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("Lastname", lastname);
             argumentsOfScenario.Add("DateOfBirth", dateOfBirth);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create customer successfully when data is valid", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer successfully when data is valid", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -105,203 +106,206 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given(string.Format("Create customer information ({0},{1},{2},{3},{4},{5})", firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("Update customer information ({0},{1},{2},{3},{4},{5},{6})", id, firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.When("Create validation is true", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 9
- testRunner.Then("Create result should be succeeded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Update result should be succeeded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create customer when first name is small")]
-        [NUnit.Framework.TestCaseAttribute("Ya", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
-        public void CreateCustomerWhenFirstNameIsSmall(string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update customer when first name is small")]
+        [NUnit.Framework.TestCaseAttribute("1", "Ya", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
+        public void UpdateCustomerWhenFirstNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Id", id);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("Lastname", lastname);
             argumentsOfScenario.Add("DateOfBirth", dateOfBirth);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create customer when first name is small", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when first name is small", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 15
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
 #line 16
-this.ScenarioInitialize(scenarioInfo);
+  testRunner.Given(string.Format("Update customer information ({0},{1},{2},{3},{4},{5},{6})", id, firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 17
-  testRunner.Given(string.Format("Create customer information ({0},{1},{2},{3},{4},{5})", firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 18
-  testRunner.Then("Create validation should be false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("Update result should be failed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create customer when last name is small")]
-        [NUnit.Framework.TestCaseAttribute("Yasin", "As", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
-        public void CreateCustomerWhenLastNameIsSmall(string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update customer when last name is small")]
+        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "As", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
+        public void UpdateCustomerWhenLastNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Id", id);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("Lastname", lastname);
             argumentsOfScenario.Add("DateOfBirth", dateOfBirth);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create customer when last name is small", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when last name is small", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 24
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
 #line 25
-this.ScenarioInitialize(scenarioInfo);
+  testRunner.Given(string.Format("Update customer information ({0},{1},{2},{3},{4},{5},{6})", id, firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 26
-  testRunner.Given(string.Format("Create customer information ({0},{1},{2},{3},{4},{5})", firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 27
-  testRunner.Then("Create validation should be false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("Update result should be failed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create customer when email is invalid")]
-        [NUnit.Framework.TestCaseAttribute("Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin", "6280231377560890", null)]
-        public void CreateCustomerWhenEmailIsInvalid(string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update customer when email is invalid")]
+        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin", "6280231377560890", null)]
+        public void UpdateCustomerWhenEmailIsInvalid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Id", id);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("Lastname", lastname);
             argumentsOfScenario.Add("DateOfBirth", dateOfBirth);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create customer when email is invalid", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when email is invalid", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 33
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
 #line 34
-this.ScenarioInitialize(scenarioInfo);
+  testRunner.Given(string.Format("Update customer information ({0},{1},{2},{3},{4},{5},{6})", id, firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 35
-  testRunner.Given(string.Format("Create customer information ({0},{1},{2},{3},{4},{5})", firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 36
-  testRunner.Then("Create validation should be false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("Update result should be failed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create customer with invalid phone number")]
-        [NUnit.Framework.TestCaseAttribute("Yasin", "Asadnezhad", "1991-02-02", "+98930", "yasin@ggmail.com", "6280231377560890", null)]
-        public void CreateCustomerWithInvalidPhoneNumber(string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update customer with invalid phone number")]
+        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+98930", "yasin@ggmail.com", "6280231377560890", null)]
+        public void UpdateCustomerWithInvalidPhoneNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Id", id);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("Lastname", lastname);
             argumentsOfScenario.Add("DateOfBirth", dateOfBirth);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create customer with invalid phone number", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer with invalid phone number", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 41
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
 #line 42
-this.ScenarioInitialize(scenarioInfo);
+  testRunner.Given(string.Format("Update customer information ({0},{1},{2},{3},{4},{5},{6})", id, firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 43
-  testRunner.Given(string.Format("Create customer information ({0},{1},{2},{3},{4},{5})", firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 44
-  testRunner.Then("Create validation should be false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("Update result should be failed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create customer with invalid bank account number")]
-        [NUnit.Framework.TestCaseAttribute("Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280", null)]
-        public void CreateCustomerWithInvalidBankAccountNumber(string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update customer with invalid bank account number")]
+        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280", null)]
+        public void UpdateCustomerWithInvalidBankAccountNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Id", id);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("Lastname", lastname);
             argumentsOfScenario.Add("DateOfBirth", dateOfBirth);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create customer with invalid bank account number", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer with invalid bank account number", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 50
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
 #line 51
-this.ScenarioInitialize(scenarioInfo);
+  testRunner.Given(string.Format("Update customer information ({0},{1},{2},{3},{4},{5},{6})", id, firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 52
-  testRunner.Given(string.Format("Create customer information ({0},{1},{2},{3},{4},{5})", firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 53
-  testRunner.Then("Create validation should be false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("Update result should be failed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create customer when email is repeated")]
-        [NUnit.Framework.TestCaseAttribute("Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "y@y.com", "6280231377560890", null)]
-        public void CreateCustomerWhenEmailIsRepeated(string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update customer when email is repeated")]
+        [NUnit.Framework.TestCaseAttribute("1", "Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "s@y.com", "6280231377560890", null)]
+        public void UpdateCustomerWhenEmailIsRepeated(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Id", id);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("Lastname", lastname);
             argumentsOfScenario.Add("DateOfBirth", dateOfBirth);
             argumentsOfScenario.Add("PhoneNumber", phoneNumber);
             argumentsOfScenario.Add("Email", email);
             argumentsOfScenario.Add("BankAccountNumber", bankAccountNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create customer when email is repeated", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 60
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update customer when email is repeated", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 59
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -311,14 +315,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 60
+  testRunner.Given(string.Format("Update customer information ({0},{1},{2},{3},{4},{5},{6})", id, firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 61
-  testRunner.Given(string.Format("Create customer information ({0},{1},{2},{3},{4},{5})", firstName, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 62
-  testRunner.When("Create validation is true", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 63
-  testRunner.Then("Create result should be failed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("Update result should be failed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

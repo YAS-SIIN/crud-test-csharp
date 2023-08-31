@@ -31,9 +31,9 @@ public class CustomerController : BaseApiController
     /// </summary>
     /// <returns>Result</returns>
     [HttpGet("{Id}")]
-    public async Task<IActionResult> Get([FromRoute] GetCustomerQuery query)
+    public async Task<IActionResult> Get([FromRoute] GetCustomerQuery query, CancellationToken cancellation)
     { 
-        return OkData(await Mediator.Send(query));
+        return OkData(await Mediator.Send(query, cancellation));
     }
 
     /// <summary>
@@ -42,9 +42,9 @@ public class CustomerController : BaseApiController
     /// <param name="command"></param>
     /// <returns>Result</returns>
     [HttpPost]
-    public async Task<IActionResult> Create(CreateCustomerCommand command)
+    public async Task<IActionResult> Create(CreateCustomerCommand command, CancellationToken cancellation)
     {
-        return OkData(await Mediator.Send(command));
+        return OkData(await Mediator.Send(command, cancellation));
     }
 
     /// <summary>
@@ -53,9 +53,9 @@ public class CustomerController : BaseApiController
     /// <param name="command"></param>
     /// <returns>Result</returns>
     [HttpPut]
-    public async Task<IActionResult> Update(UpdateCustomerCommand command)
+    public async Task<IActionResult> Update(UpdateCustomerCommand command, CancellationToken cancellation)
     {
-        return OkData(await Mediator.Send(command));
+        return OkData(await Mediator.Send(command, cancellation));
     }
 
     /// <summary>
@@ -63,10 +63,10 @@ public class CustomerController : BaseApiController
     /// </summary>
     /// <returns>Result</returns>
     [HttpDelete("{Id}")]
-    public async Task<IActionResult> Delete([FromRoute] DeleteCustomerCommand command)
+    public async Task<IActionResult> Delete([FromRoute] DeleteCustomerCommand command, CancellationToken cancellation)
     { 
 
-        return OkData(await Mediator.Send(command));
+        return OkData(await Mediator.Send(command, cancellation));
     }
 
 }
