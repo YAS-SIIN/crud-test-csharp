@@ -9,7 +9,7 @@ Scenario: Delete customer successfully when data is valid
 	
 	Examples:
 		| Id |
-		| 1  |
+		| 2  |
 
 
 Scenario: Delete customer when id not found

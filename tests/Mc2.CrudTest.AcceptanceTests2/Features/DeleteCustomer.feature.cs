@@ -76,7 +76,7 @@ namespace Mc2.CrudTest.AcceptanceTests2.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Delete customer successfully when data is valid")]
         [NUnit.Framework.CategoryAttribute("DeleteSuccesfully")]
-        [NUnit.Framework.TestCaseAttribute("1", null)]
+        [NUnit.Framework.TestCaseAttribute("2", null)]
         public void DeleteCustomerSuccessfullyWhenDataIsValid(string id, string[] exampleTags)
         {
             string[] @__tags = new string[] {

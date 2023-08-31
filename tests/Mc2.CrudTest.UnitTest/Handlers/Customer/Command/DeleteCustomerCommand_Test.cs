@@ -21,7 +21,7 @@ public class DeleteCustomerCommand_Test
     }
 
     [Theory]
-    [InlineData(1)]
+    [InlineData(2)]
     public async Task DeleteCustomer_WhenEverythingIsOk_ShouldBeSucceeded(int id)
     { 
         var requestData = new DeleteCustomerCommand { Id = id };
