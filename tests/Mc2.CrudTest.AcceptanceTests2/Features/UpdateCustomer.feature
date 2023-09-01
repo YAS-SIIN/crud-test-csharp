@@ -9,7 +9,7 @@ Scenario: Update customer successfully when data is valid
 	
 	Examples:
 		| Id |  FirstName | Lastname        | DateOfBirth | PhoneNumber   | Email                | BankAccountNumber |
-		| 1  |  Yasin     | Asadnezhad      | 1991-02-02  | +989306030638 | yassin@ggmail.com     | 6280231377560890  |
+		| 3  |  Amir      | Asadnezhad      | 1991-02-02  | +989306030639 | yassin@ggmail.com     | 6280231377560890  |
 
 
 Scenario: Update customer when first name is small
@@ -18,7 +18,7 @@ Scenario: Update customer when first name is small
 		
 	Examples:
 		| Id | FirstName | Lastname        | DateOfBirth | PhoneNumber   | Email                | BankAccountNumber |
-		| 1  | Ya     | Asadnezhad      | 1991-02-02  | +989306030638 | yasin@ggmail.com     | 6280231377560890  |
+		| 3  | Am        | Asadnezhad      | 1991-02-02  | +989306030639 | yasin@ggmail.com     | 6280231377560890  |
   
 
 Scenario: Update customer when last name is small
@@ -27,7 +27,7 @@ Scenario: Update customer when last name is small
 		
 	Examples:
 		| Id | FirstName | Lastname        | DateOfBirth | PhoneNumber   | Email                | BankAccountNumber |
-		| 1  | Yasin     | As              | 1991-02-02  | +989306030638 | yasin@ggmail.com     | 6280231377560890  |
+		| 3  | Amir      | As              | 1991-02-02  | +989306030639 | yasin@ggmail.com     | 6280231377560890  |
   
 
 Scenario: Update customer when email is invalid
@@ -36,7 +36,7 @@ Scenario: Update customer when email is invalid
 		
 	Examples:
 		| Id | FirstName | Lastname        | DateOfBirth | PhoneNumber   | Email                | BankAccountNumber |
-		| 1  | Yasin     | Asadnezhad      | 1991-02-02  | +989306030638 | yasin                | 6280231377560890  |
+		| 3  | Amir      | Asadnezhad      | 1991-02-02  | +989306030639 | yasin                | 6280231377560890  |
   
 Scenario: Update customer with invalid phone number
 		Given Update customer information (<Id>,<FirstName>,<Lastname>,<DateOfBirth>,<PhoneNumber>,<Email>,<BankAccountNumber>)
@@ -44,7 +44,7 @@ Scenario: Update customer with invalid phone number
 		
 	Examples:
 		| Id | FirstName | Lastname        | DateOfBirth | PhoneNumber   | Email                | BankAccountNumber |
-		| 1  | Yasin     | Asadnezhad      | 1991-02-02  | +98930        | yasin@ggmail.com     | 6280231377560890  |
+		| 3  | Amir      | Asadnezhad      | 1991-02-02  | +98930        | yasin@ggmail.com     | 6280231377560890  |
   
 
 Scenario: Update customer with invalid bank account number
@@ -53,7 +53,7 @@ Scenario: Update customer with invalid bank account number
 		
 	Examples:
 		| Id | FirstName | Lastname        | DateOfBirth | PhoneNumber   | Email                | BankAccountNumber |
-		| 1  | Yasin     | Asadnezhad      | 1991-02-02  | +989306030638 | yasin@ggmail.com     | 6280              |
+		| 3  | Amir      | Asadnezhad      | 1991-02-02  | +989306030639 | yasin@ggmail.com     | 6280              |
  
 		
 Scenario: Update customer when email is repeated 
@@ -62,5 +62,5 @@ Scenario: Update customer when email is repeated
 		
 	Examples:
 		| Id | FirstName | Lastname        | DateOfBirth | PhoneNumber   | Email                | BankAccountNumber |
-		| 1  | Mahdi     | Asadnezhad      | 1991-02-02  | +989306030638 | s@y.com              | 6280231377560890  |
+		| 3  | Amir      | Asadnezhad      | 1991-02-02  | +989306030639 | y@y.com              | 6280231377560890  |
      

@@ -13,29 +13,32 @@ namespace Mc2.CrudTest.UnitTest.Handlers.Customer.Command;
 public class CreateCustomerCommand_Test
 {
     private readonly CreateCustomerCommandHandler _createCustomerCommandHandler;
+    private readonly CreateCustomerCommandValidator _validationRules;
     public CreateCustomerCommand_Test()
     {
         TestTools.Initialize();
         _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
+        _validationRules = new CreateCustomerCommandValidator();
     }
 
     [Theory]
     [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithEverythingIsOk), MemberType = typeof(CreateCustomerCommand_Data))] 
     public async Task CreateCustomer_WhenEverythingIsOk_ShouldBeSucceeded(CreateCustomerCommand requestData)
     { 
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.True(validation.IsValid);
 
         var responseData = await _createCustomerCommandHandler.Handle(requestData, CancellationToken.None);
 
         Assert.Equal((int)EnumResponseStatus.OK, responseData.StatusCode);
+        TestTools._mockUnitOfWork.Object.Dispose();
     }
 
     [Theory]
     [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithFirstnameIsEmpty_ShouldBeFailed), MemberType = typeof(CreateCustomerCommand_Data))]
     public async Task CreateCustomer_WhenFirstnameIsEmpty_ShouldBeFailed(CreateCustomerCommand requestData)
     {  
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.False(validation.IsValid);
  
     }
@@ -50,9 +53,9 @@ public class CreateCustomerCommand_Test
         var type = phoneNumberUtil.GetNumberType(phoneNumber);
         Assert.Equal(PhoneNumbers.PhoneNumberType.MOBILE, type); 
          
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.True(validation.IsValid);
- 
+        
     }
     
     [Theory]
@@ -64,7 +67,7 @@ public class CreateCustomerCommand_Test
         var type = phoneNumberUtil.GetNumberType(phoneNumber); 
         Assert.NotEqual(PhoneNumbers.PhoneNumberType.MOBILE, type);
 
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.False(validation.IsValid);
  
     }
@@ -73,7 +76,7 @@ public class CreateCustomerCommand_Test
     [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithLastnameIsEmpty_ShouldBeFailed), MemberType = typeof(CreateCustomerCommand_Data))]
     public async Task CreateCustomer_WhenLastnameIsEmpty_ShouldBeFailed(CreateCustomerCommand requestData)
     {
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.False(validation.IsValid);
  
     }
@@ -82,7 +85,7 @@ public class CreateCustomerCommand_Test
     [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithBankAccountNumberIsNotValid), MemberType = typeof(CreateCustomerCommand_Data))]
     public async Task CreateCustomer_WhenBankAccountNumberIsNotValid_ShouldBeFailed(CreateCustomerCommand requestData)
     {  
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.False(validation.IsValid);
  
     }
@@ -91,7 +94,7 @@ public class CreateCustomerCommand_Test
     [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithEmailIsNotValid), MemberType = typeof(CreateCustomerCommand_Data))]
     public async Task CreateCustomer_WhenEmailIsNotValid_ShouldBeFailed(CreateCustomerCommand requestData)
     {   
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.False(validation.IsValid);
     }
 
@@ -99,11 +102,11 @@ public class CreateCustomerCommand_Test
     [MemberData(nameof(CreateCustomerCommand_Data.SetDataFor_CreateCustomer_WithEmailExistsBefore), MemberType = typeof(CreateCustomerCommand_Data))]
     public async Task CreateCustomer_WhenEmailExistsBefore_ShouldBeFailed(CreateCustomerCommand requestData)
     {  
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(requestData);
+        var validation = await _validationRules.ValidateAsync(requestData);
         Assert.True(validation.IsValid);
 
-        await Assert.ThrowsAsync<ErrorException>(() => _createCustomerCommandHandler.Handle(requestData, CancellationToken.None));
-  
+        await Assert.ThrowsAsync<ErrorException>(async() => await _createCustomerCommandHandler.Handle(requestData, CancellationToken.None));
+        TestTools._mockUnitOfWork.Object.Dispose();
 
     }
 }

@@ -23,23 +23,25 @@ public class GetCustomerQuery_Test
     }
 
     [Theory]
-    [InlineData(1)]
+    [InlineData(5)]
     public async Task GetCustomer_ShouldBeSucceeded(int id)
     { 
         var requestData = new GetCustomerQuery { Id = id };
         var responseData = await _getCustomerQueryHandler.Handle(requestData, CancellationToken.None);
 
         Assert.NotNull(responseData.Data);
+        TestTools._mockUnitOfWork.Object.Dispose();
     }
 
     [Theory]
-    [InlineData(5)]
+    [InlineData(999)]
     public async Task GetCustomer_ShouldBeFailed(int id)
     {
 
         var requestData = new GetCustomerQuery { Id = id };
 
-        await Assert.ThrowsAsync<ErrorException>(() => _getCustomerQueryHandler.Handle(requestData, CancellationToken.None));
+        await Assert.ThrowsAsync<ErrorException>(async () => await _getCustomerQueryHandler.Handle(requestData, CancellationToken.None));
+        TestTools._mockUnitOfWork.Object.Dispose();
     }
 
 }

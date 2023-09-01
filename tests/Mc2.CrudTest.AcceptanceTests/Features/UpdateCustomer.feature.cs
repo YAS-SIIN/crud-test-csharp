@@ -76,7 +76,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer successfully when data is valid")]
         [NUnit.Framework.CategoryAttribute("UpdateSuccesfully")]
-        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "mahdi@ggmail.com", "6280231377560890", null)]
         public virtual void UpdateCustomerSuccessfullyWhenDataIsValid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -130,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when first name is small")]
-        [NUnit.Framework.TestCaseAttribute("1", "Ya", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Ma", "Asadnezhad", "1991-02-02", "+989306030638", "mahdi@ggmail.com", "6280231377560890", null)]
         public virtual void UpdateCustomerWhenFirstNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -175,7 +175,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when last name is small")]
-        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "As", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280231377560890", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Mahdi", "As", "1991-02-02", "+989306030638", "mahdi@ggmail.com", "6280231377560890", null)]
         public virtual void UpdateCustomerWhenLastNameIsSmall(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -220,7 +220,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when email is invalid")]
-        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin", "6280231377560890", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "mahdi", "6280231377560890", null)]
         public virtual void UpdateCustomerWhenEmailIsInvalid(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -265,7 +265,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer with invalid phone number")]
-        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+98930", "yasin@ggmail.com", "6280231377560890", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Mahdi", "Asadnezhad", "1991-02-02", "+98930", "mahdi@ggmail.com", "6280231377560890", null)]
         public virtual void UpdateCustomerWithInvalidPhoneNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -310,7 +310,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer with invalid bank account number")]
-        [NUnit.Framework.TestCaseAttribute("1", "Yasin", "Asadnezhad", "1991-02-02", "+989306030638", "yasin@ggmail.com", "6280", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "mahdi@ggmail.com", "6280", null)]
         public virtual void UpdateCustomerWithInvalidBankAccountNumber(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -355,7 +355,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update customer when email is repeated")]
-        [NUnit.Framework.TestCaseAttribute("1", "Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "s@y.com", "6280231377560890", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Mahdi", "Asadnezhad", "1991-02-02", "+989306030638", "y@y.com", "6280231377560890", null)]
         public virtual void UpdateCustomerWhenEmailIsRepeated(string id, string firstName, string lastname, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

@@ -79,7 +79,7 @@ public class CreateCustomerCommand_Data
     public static IEnumerable<object[]> SetDataFor_CreateCustomer_WithBankAccountNumberIsNotValid()
     {
         yield return new object[] { new CreateCustomerCommand() {
-             Firstname = "Yasin",
+            Firstname = "Yasin",
             Lastname = "Asadnezhad",
             Email = "yasin@gmail.com",
             PhoneNumber = "+989306030638",
@@ -107,7 +107,7 @@ public class CreateCustomerCommand_Data
         yield return new object[] { new CreateCustomerCommand() {
             Firstname = "Yasin",
             Lastname = "Asadnezhad",
-            Email = "yasin@gmail.com",
+            Email = "y@y.com",
             PhoneNumber = "+989306030638",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,

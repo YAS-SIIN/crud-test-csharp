@@ -14,12 +14,14 @@ public class CreateCustomerStepDefinitions
 {
     private CreateCustomerCommand _requestData;
     private readonly CreateCustomerCommandHandler _createCustomerCommandHandler;
+    private readonly CreateCustomerCommandValidator _validationRules;
 
     public CreateCustomerStepDefinitions(CreateCustomerCommand requestData)
     {
         _requestData = requestData;
         TestTools.Initialize();
         _createCustomerCommandHandler = new CreateCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
+        _validationRules = new CreateCustomerCommandValidator();
     }
     [Given(@"Create customer information \((.*),(.*),(.*),(.*),(.*),(.*)\)")]
     public void GivenCreateCustomerInformation(string firstName, string lastName, DateTime dateOfBirth,
@@ -39,13 +41,13 @@ public class CreateCustomerStepDefinitions
     [When(@"Create validation is true")]
     public async Task WhenCreateValidationIsTrue()
     {
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(_requestData);
+        var validation = await _validationRules.ValidateAsync(_requestData);
         Assert.True(validation.IsValid);
     }
     [Then(@"Create validation should be false")]
     public async Task ThenCreateValidationShouldBeFalse()
     {
-        var validation = await new CreateCustomerCommandValidator().ValidateAsync(_requestData);
+        var validation = await _validationRules.ValidateAsync(_requestData);
         Assert.False(validation.IsValid);
     }
 
@@ -54,7 +56,7 @@ public class CreateCustomerStepDefinitions
     {
         var responseData = await _createCustomerCommandHandler.Handle(_requestData, CancellationToken.None);
 
-        Assert.AreEqual(EnumResponseStatus.OK, responseData.StatusCode);
+        Assert.AreEqual((int)EnumResponseStatus.OK, responseData.StatusCode);
     }
 
     [Then(@"Create result should be failed")]

@@ -21,22 +21,24 @@ public class DeleteCustomerCommand_Test
     }
 
     [Theory]
-    [InlineData(2)]
+    [InlineData(3)]
     public async Task DeleteCustomer_WhenEverythingIsOk_ShouldBeSucceeded(int id)
     { 
         var requestData = new DeleteCustomerCommand { Id = id };
         var responseData = await _deleteCustomerCommandHandler.Handle(requestData, CancellationToken.None);
 
         Assert.Equal((int)EnumResponseStatus.OK, responseData.StatusCode);
+        TestTools._mockUnitOfWork.Object.Dispose();
     }
 
     [Theory]
-    [InlineData(5)]
+    [InlineData(999)]
     public async Task DeleteCustomer_WhenIdNotFound_ShouldBeFailed(int id)
     {
 
         var requestData = new DeleteCustomerCommand { Id = id };
 
-        await Assert.ThrowsAsync<ErrorException>(() => _deleteCustomerCommandHandler.Handle(requestData, CancellationToken.None));
+        await Assert.ThrowsAsync<ErrorException>(async () => await _deleteCustomerCommandHandler.Handle(requestData, CancellationToken.None));
+        TestTools._mockUnitOfWork.Object.Dispose();
     }
 }

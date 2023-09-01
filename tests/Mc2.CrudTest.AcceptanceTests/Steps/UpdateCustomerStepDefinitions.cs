@@ -16,12 +16,14 @@ public class UpdateCustomerStepDefinitions
 {
     private UpdateCustomerCommand _requestData;
     private readonly UpdateCustomerCommandHandler _UpdateCustomerCommandHandler;
+    private readonly UpdateCustomerCommandValidator _validationRules;
 
     public UpdateCustomerStepDefinitions(UpdateCustomerCommand requestData)
     {
         _requestData = requestData;
         TestTools.Initialize();
         _UpdateCustomerCommandHandler = new UpdateCustomerCommandHandler(TestTools._mockUnitOfWork.Object);
+        _validationRules = new UpdateCustomerCommandValidator();
     }
     [Given(@"Update customer information \((\d+),(.*),(.*),(.*),(.*),(.*),(.*)\)")]
     public void GivenUpdateCustomerInformation(int id, string firstName, string lastName, DateTime dateOfBirth,
@@ -42,13 +44,13 @@ public class UpdateCustomerStepDefinitions
     [When(@"Update validation is true")]
     public async Task WhenUpdateValidationIsTrue()
     {
-        var validation = await new UpdateCustomerCommandValidator().ValidateAsync(_requestData);
+        var validation = await _validationRules.ValidateAsync(_requestData);
         Assert.True(validation.IsValid);
     }
     [Then(@"Update validation should be false")]
     public async Task ThenUpdateValidationShouldBeFalse()
     {
-        var validation = await new UpdateCustomerCommandValidator().ValidateAsync(_requestData);
+        var validation = await _validationRules.ValidateAsync(_requestData);
         Assert.False(validation.IsValid);
     }
 
@@ -57,7 +59,7 @@ public class UpdateCustomerStepDefinitions
     {
         var responseData = await _UpdateCustomerCommandHandler.Handle(_requestData, CancellationToken.None);
 
-        Assert.AreEqual(EnumResponseStatus.OK, responseData.StatusCode);
+        Assert.AreEqual((int)EnumResponseStatus.OK, responseData.StatusCode);
     }
 
     [Then(@"Update result should be failed")]

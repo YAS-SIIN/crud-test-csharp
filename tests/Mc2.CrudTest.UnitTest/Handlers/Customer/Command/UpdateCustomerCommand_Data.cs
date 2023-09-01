@@ -13,11 +13,11 @@ public class UpdateCustomerCommand_Data
     public static IEnumerable<object[]> SetDataFor_UpdateCustomer_WithEverythingIsOk()
     {
         yield return new object[] { new UpdateCustomerCommand() {
-            Id = 1,
-            Firstname = "YasinTest",
+            Id = 2,
+            Firstname = "Mahdi",
             Lastname = "Asadnezhad",
-            Email = "yassin@gmail.com",
-            PhoneNumber = "+989306030638",
+            Email = "mahdi@gmail.com",
+            PhoneNumber = "+989306030639",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -27,11 +27,11 @@ public class UpdateCustomerCommand_Data
     public static IEnumerable<object[]> SetDataFor_UpdateCustomer_WithFirstnameIsEmpty_ShouldBeFailed()
     {
         yield return new object[] { new UpdateCustomerCommand() {
-            Id = 1,
+            Id = 2,
             Firstname = "",
             Lastname = "Asadnezhad",
-            Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030638",
+            Email = "mahdi@gmail.com",
+            PhoneNumber = "+989306030639",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -41,11 +41,11 @@ public class UpdateCustomerCommand_Data
     public static IEnumerable<object[]> SetDataFor_UpdateCustomer_WithLastnameIsEmpty_ShouldBeFailed()
     {
         yield return new object[] { new UpdateCustomerCommand() {
-            Id = 1,
-            Firstname = "Yasin",
+            Id = 2,
+            Firstname = "Mahdi",
             Lastname = "",
-            Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030638",
+            Email = "mahdi@gmail.com",
+            PhoneNumber = "+989306030639",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -55,11 +55,11 @@ public class UpdateCustomerCommand_Data
     public static IEnumerable<object[]> SetDataFor_UpdateCustomer_WithBankAccountNumberIsNotValid()
     {
         yield return new object[] { new UpdateCustomerCommand() {
-            Id = 1,
-             Firstname = "Yasin",
+            Id = 2,
+            Firstname = "Mahdi",
             Lastname = "Asadnezhad",
-            Email = "yasin@gmail.com",
-            PhoneNumber = "+989306030638",
+            Email = "mahdi@gmail.com",
+            PhoneNumber = "+989306030639",
             BankAccountNumber = "6219",
             DateOfBirth = DateTime.Now,
         }
@@ -69,10 +69,11 @@ public class UpdateCustomerCommand_Data
     public static IEnumerable<object[]> SetDataFor_UpdateCustomer_WithEmailIsNotValid()
     {
         yield return new object[] { new UpdateCustomerCommand() {
-             Firstname = "Yasin",
+            Id = 2,
+            Firstname = "Mahdi",
             Lastname = "Asadnezhad",
-            Email = "yasin",
-            PhoneNumber = "+989306030638",
+            Email = "mahdi",
+            PhoneNumber = "+989306030639",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }
@@ -82,11 +83,11 @@ public class UpdateCustomerCommand_Data
     public static IEnumerable<object[]> SetDataFor_UpdateCustomer_WithEmailExistsBefore()
     {
         yield return new object[] { new UpdateCustomerCommand() {
-            Id = 1,
-            Firstname = "Yasin",
+            Id = 2,
+            Firstname = "Mahdi",
             Lastname = "Asadnezhad",
-            Email = "s@y.com",
-            PhoneNumber = "+989306030638",
+            Email = "y@y.com",
+            PhoneNumber = "+989306030639",
             BankAccountNumber= "6280231377560890",
             DateOfBirth = DateTime.Now,
         }

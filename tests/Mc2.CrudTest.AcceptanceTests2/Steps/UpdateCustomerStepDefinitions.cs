@@ -69,7 +69,7 @@ namespace Mc2.CrudTest.AcceptanceTests2.Steps
             var payload = JsonSerializer.Serialize(_requestData);
 
             HttpContent httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/customer", httpContent, CancellationToken.None);
+            var response = await _httpClient.PutAsync("/api/customer", httpContent, CancellationToken.None);
             Assert.AreNotEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.False(response.IsSuccessStatusCode);
             var result = await response.Content.ReadAsStringAsync();
