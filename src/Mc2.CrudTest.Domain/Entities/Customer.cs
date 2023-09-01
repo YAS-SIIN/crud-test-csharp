@@ -1,6 +1,7 @@
 ﻿
 
-using Mc2.CrudTest.Domain.Entities.Common;
+using Mc2.CrudTest.Domain.Common;
+using Mc2.CrudTest.Domain.ValueObjects;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -14,6 +15,7 @@ namespace Mc2.CrudTest.Domain.Entities;
 /// </summary>
 public class Customer : BaseEntity<int>
 {
+    public Customer() { }
     /// <summary>
     /// First name of customer
     /// </summary>
@@ -43,6 +45,36 @@ public class Customer : BaseEntity<int>
     /// Bank account number of customer
     /// </summary>
     public string BankAccountNumber { get; set; }
+
+    public CustomerName customerName { get; }
+
+
+    public Customer(string firstname, string lastname, DateTime dateOfBirth, string phoneNumber, string email, string bankAccountNumber)
+    {
+        if (string.IsNullOrWhiteSpace(firstname)) throw new ArgumentNullException(nameof(firstname));
+        if (firstname.Length < 3) throw new ApplicationException("First name is invalid");
+
+        if (string.IsNullOrWhiteSpace(lastname)) throw new ArgumentNullException(nameof(lastname));
+        if (lastname.Length < 3) throw new ApplicationException("Last name is invalid");
+
+        if (string.IsNullOrWhiteSpace(phoneNumber)) throw new ArgumentNullException(nameof(phoneNumber));
+        if (phoneNumber.Length < 10) throw new ApplicationException("Phone number is invalid");
+
+        if (string.IsNullOrWhiteSpace(email)) throw new ArgumentNullException(nameof(email));
+        if (phoneNumber.Length < 4) throw new ApplicationException("Email is invalid");
+
+        if (string.IsNullOrWhiteSpace(bankAccountNumber)) throw new ArgumentNullException(nameof(bankAccountNumber));
+        if (bankAccountNumber.Length < 4) throw new ApplicationException("Bank account number is invalid");
+
+        Firstname = firstname;
+        Lastname = lastname;
+        customerName = new CustomerName(firstname, lastname);
+        DateOfBirth = dateOfBirth;
+        PhoneNumber = phoneNumber;
+        Email = email;
+        BankAccountNumber = bankAccountNumber;
+    }
+
 }
 
 public class CustomerEntityTypeConfiguration : IEntityTypeConfiguration<Customer>

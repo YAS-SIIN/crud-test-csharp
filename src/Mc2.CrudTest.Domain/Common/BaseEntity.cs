@@ -1,7 +1,7 @@
-﻿           
+﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace Mc2.CrudTest.Domain.Entities.Common;
+namespace Mc2.CrudTest.Domain.Common;
 
 /// <summary>
 /// Base Entity Class Which is base of the every entity. 
@@ -35,4 +35,3 @@ public abstract class BaseEntity<TKey>
     public string? Description { get; set; }
 }
 
- 

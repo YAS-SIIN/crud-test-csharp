@@ -18,6 +18,9 @@ public enum EnumResponseResultCodes : int
 
     [Display(Name = "Data is repeated.")]
     RepeatedData = 102,
+    
+    [Display(Name = "Data is invalid.")]
+    InvalidData = 102,
 
     [Display(Name = "This data can't delete.")]
     NotDelete = 107,

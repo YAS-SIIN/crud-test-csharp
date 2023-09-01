@@ -20,12 +20,17 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
 
     public async Task<ResultDto<GetCustomerResponse>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
-        var emailExist = await _uw.GetRepository<Domain.Entities.Customer>().ExistDataAsync(cancellationToken, x=>x.Email.Equals(request.Email));
+        if (request is null)
+            throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseResultCodes.NotFound, "The input data is empty.");
+
+        var emailExist = await _uw.GetRepository<Domain.Entities.Customer>().ExistDataAsync(cancellationToken, x => x.Email.Equals(request.Email));
 
         if (emailExist)
             throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseResultCodes.RepeatedData, "Email is repeated.");
          
-        Domain.Entities.Customer inputData = Mapper<Domain.Entities.Customer, CreateCustomerCommand>.MappClasses(request);
+        //Domain.Entities.Customer inputData = Mapper<Domain.Entities.Customer, CreateCustomerCommand>.MappClasses(request);
+        Domain.Entities.Customer inputData = new Domain.Entities.Customer(request?.Firstname, request?.Lastname, request.DateOfBirth.Value, request?.PhoneNumber, request?.Email, request?.BankAccountNumber);
+
         await _uw.GetRepository<Domain.Entities.Customer>().AddAsync(inputData, cancellationToken, true);
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);

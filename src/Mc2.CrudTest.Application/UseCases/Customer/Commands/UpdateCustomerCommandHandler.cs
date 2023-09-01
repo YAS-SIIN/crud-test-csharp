@@ -19,6 +19,9 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 
     public async Task<ResultDto<GetCustomerResponse>> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
     {
+        if (request is null)
+            throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseResultCodes.NotFound, "The input data is empty.");
+
         var inputData = await _uw.GetRepository<Domain.Entities.Customer>().GetByIdAsync((object)request.Id, cancellationToken);
 
         if (inputData is null && inputData is not Domain.Entities.Customer)
@@ -28,15 +31,9 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
         
         if (emailExist)
             throw new ErrorException((int)EnumResponseStatus.BadRequest, (int)EnumResponseResultCodes.RepeatedData, "Email is repeated.");
-         
-        //inputData = Mapper<Domain.Entities.Customer, UpdateCustomerCommand>.MappClasses(request);
-        inputData.Firstname = request.Firstname;
-        inputData.Lastname = request.Lastname;
-        inputData.DateOfBirth = request.DateOfBirth.Value;
-        inputData.PhoneNumber = request.PhoneNumber;
-        inputData.Email = request.Email;
-        inputData.BankAccountNumber = request.BankAccountNumber;
-       
+
+        inputData = new Domain.Entities.Customer(request?.Firstname, request?.Lastname, request.DateOfBirth.Value, request?.PhoneNumber, request?.Email, request?.BankAccountNumber);
+           
         _uw.GetRepository<Domain.Entities.Customer>().Update(inputData, true);
 
         GetCustomerResponse outputData = Mapper<GetCustomerResponse, Domain.Entities.Customer>.MappClasses(inputData);
